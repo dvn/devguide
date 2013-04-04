@@ -1,0 +1,332 @@
+/* all local style changes; overrides style.css */
+
+/* start Matthias-supplied css code */
+
+
+html {
+	margin: 0; 
+	padding: 0;
+}
+
+html body {
+    line-height: 1.3em;
+    font-family: Tahoma, sans-serif;
+    font-size: small;
+    padding: 0;
+    min-width: 726px;
+    background-color: #FFF;
+}
+
+form {
+	margin: .6em 0;
+}
+
+h1 {
+	margin: .8em 0 0 -4%;
+	line-height: 1.3;
+}
+
+h2 {
+	margin: .8em 0 0 -4%;
+	line-height: 1.3;
+}
+
+h3 {
+	margin: .8em 0 0 -3%;
+	line-height: 1.3;
+}
+
+h4 {
+	margin: .8em 0 0 -3%;
+	line-height: 1.3;
+}
+
+h5 {
+	margin: .8em 0 0 -2%;
+	line-height: 1.3;
+}
+
+h6 {
+	margin: .8em 0 0 -1%;
+	line-height: 1.3;
+}
+
+hr {
+	margin: .6em
+}
+
+ol {
+	margin: 0 0 0 5%;
+	line-height: 1.2;
+}
+
+pre {
+	margin: .75em 0;
+	line-height: 1.0;
+	color: #461b7e;
+}
+
+td {
+	line-height: 1.2
+}
+
+th {
+	line-height: 1.2;
+}
+
+ul {
+	margin: 0 0 0 5%;
+	line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-left: 0
+} 
+
+.pagetitle {
+    text-transform: capitalize;
+}
+
+
+.edited {
+    font-size: 0.75em;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+.actions ul {
+    margin: 0;
+    padding: 6px;
+    list-style-type: none;
+    border-bottom: 0;
+}
+
+.actions li {
+    font-size: 0.75em;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+.breadcrumbs:before {
+    content: 'Path: ';
+}
+
+.breadcrumbs {
+    margin-top: 1em;
+    font-weight: bold;
+    font-size: 0.75em;
+}
+
+.dataline {
+    font-size: .75em;
+    font-family: sans-serif;
+}
+
+blockquote {
+	margin-top: .75em;
+	line-height: 1.5;
+	margin-bottom: .75em;
+}
+
+a:link    { color: #000; }
+a:visited { color: #222; }
+a:hover   { color: #444 }
+a:active  { color: #000; }
+
+div.header {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    margin: 0 0 10px 0;
+    padding: 0;
+    clear: both;
+    font-size: 2em;
+}
+
+#aheader {
+    font-size: 150%;
+}
+
+a#aheader:link    { text-decoration: none; color: #000; }
+a#aheader:visited { text-decoration: none; color: #000; }
+a#aheader:hover   { text-decoration: none; color: #000; }
+a#aheader:active  { text-decoration: none; color: #000; }
+
+a.anav:link    { text-decoration: none; color: #000; }
+a.anav:visited { text-decoration: none; color: #000; }
+a.anav:hover   { text-decoration: underline; color: #000; }
+a.anav:active  { text-decoration: none; color: #000; }
+
+div#nav {
+    padding-top: 5px;
+    font-size: 12px;
+    letter-spacing: +1px;
+}
+
+/* general */
+
+div.intro {
+    width: 575px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+div.bignav {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    /*
+    border-top: solid 2px #c0f6aa;
+    border-bottom: solid 2px #c0f6aa;
+    */
+    background: url('/images/gradient1.png');
+    background-repeat: repeat-x;
+    background-attachment:fixed;
+    background-position: center; 
+}
+
+div.footernotice {
+    font-size: 0.3em;
+    color: #555;
+    text-align: center;
+    padding-top: 1em;
+    font-size: small;
+    font-style: italic;
+}
+
+#wrap {
+    width: 80%;
+    margin: 10px auto;
+    padding: 0 0 0 0;
+}
+
+#main {
+    margin-left: 180px; /* sidebar width + margin */
+}
+
+.bullet {
+    color: #ccc;
+}
+
+#sidebar {
+    float:left;
+    width:150px;
+    padding-right: 10px;
+    line-height: 1.2em;
+    margin-left: 0px;
+}
+
+.sidebarlink {
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 0; 
+    padding-left: 0;
+    margin-left: 0;
+    text-decoration: none;
+    color: #000099;
+}
+
+a.sidebarlink:link    { text-decoration: none; color: #000; }
+a.sidebarlink:visited { text-decoration: none; color: #000; }
+a.sidebarlink:hover   { text-decoration: underline; color: #119; }
+a.sidebarlink:active  { text-decoration: none; color: #900; }
+
+
+#sidebarlogo {
+    padding-bottom: 10px;
+    margin-bottom: 5px;
+    border-bottom: solid 1px #ddd;
+}
+
+.introtext {
+    text-align: justify;
+    color: #999;
+}
+
+#footer {
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+div.recentchanges {
+    clear: none;
+}
+
+.digestcontent {
+    margin-top: .4em;
+    font-size: smaller;
+}
+
+div.digestbox {
+    float: right;
+    margin-left: 2ex;
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+    padding: 1ex 1ex;
+    border: 1px solid #ddd;
+    background: white;
+    color: black !important;
+
+}
+
+
+/* 
+A list of all preexisting styles
+
+.header {
+.author {
+.actions ul {
+.inlinepage .actions ul {
+.actions li {
+.pagefooter {
+.tags {
+.mapparent {
+.img caption {
+.recentchanges .metadata {
+.recentchanges .changelog {
+.recentchanges .desc {
+.recentchanges .diff {
+.recentchanges .committer {
+.recentchanges .committype {
+.recentchanges .changedate {
+.recentchanges .pagelinks {
+.inlinepage {
+.pagedate,
+.pagelicense,
+.pagecopyright {
+.error {
+.fb_invalid {
+.fb_required {
+.feedbutton {
+.feedbutton:hover {
+.pagecloud {
+.smallestPC { font-size: 70%; }
+.smallPC { font-size: 85%; }
+.normalPC { font-size: 100%; }
+.bigPC { font-size: 115%; }
+.biggestPC { font-size: 130%; }
+.infobox {
+.notebox {
+.popup {
+.popup .balloon,
+.popup .paren,
+.popup .expand {
+.popup:hover .balloon,
+.popup:focus .balloon {
+.fb_submit {
+#pageinfo {
+#backlinks {
+#searchform {
+#editcontent {
+#blogform {
+#sidebar {
+#signin_openid_url_label {
+#signin_openid {
+
+*/

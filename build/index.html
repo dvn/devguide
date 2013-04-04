@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+<!-- <link rel="alternate" type="application/atom+xml" href="http://git.example.com/?p=wiki.git;a=atom" title="wiki.example.com commits"/> -->
+<title>build</title>
+
+<link rel="stylesheet" href="../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../">DVN Developer's Guide</a>/ 
+
+</span>
+<span class="title">
+build
+
+</span>
+</span>
+
+</div>
+
+<!--
+
+<div class="actions">
+<ul>
+
+
+
+<li><a href="FIXME">History</a></li>
+
+
+
+
+
+
+
+</ul>
+</div>
+
+-->
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><span class="selflink">Build</span></li>
+<li><a href="../deploy/">Deploy</a></li>
+<li><a href="../branches/">Branches</a></li>
+<li><a href="../tips/">Tips</a></li>
+</ul>
+
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+
+
+<div class="toc">
+	<ol>
+		<li class="L2"><a href="#index1h2">Introduction</a>
+		</li>
+		<li class="L2"><a href="#index2h2">Branching model: develop vs. master</a>
+		</li>
+		<li class="L2"><a href="#index3h2">Ensure you have a GitHub account</a>
+		</li>
+		<li class="L2"><a href="#index4h2">Set up an ssh keypair (if you haven't already)</a>
+		</li>
+		<li class="L2"><a href="#index5h2">Clone the repo</a>
+		<ol>
+			<li class="L3"><a href="#index1h3">Remote Repository</a>
+			</li>
+			<li class="L3"><a href="#index2h3">Remote Branches</a>
+			</li>
+			<li class="L3"><a href="#index3h3">Destination Directory</a>
+			</li>
+		</ol>
+		</li>
+		<li class="L2"><a href="#index6h2">Install ICEfaces plugin</a>
+		</li>
+		<li class="L2"><a href="#index7h2">Configure NetBeans libraries</a>
+		</li>
+		<li class="L2"><a href="#index8h2">Files changed by NetBeans during a clone</a>
+		</li>
+		<li class="L2"><a href="#index9h2">Pushing your commits to GitHub</a>
+		</li>
+		<li class="L2"><a href="#index10h2">Switching to the master branch to merge commits from the develop branch</a>
+		</li>
+	</ol>
+</div>
+
+
+<h2><a name="index1h2"></a>Introduction</h2>
+
+<p>This is a walk through of building a war file from the DVN source code. For information on deploying that war file to GlassFish, please see the <a href="../deploy/">deploy</a> page.</p>
+
+<h2><a name="index2h2"></a>Branching model: develop vs. master</h2>
+
+<p>Please see <a href="../branches/">branches</a> for detail, but in short, the "develop" branch is where new commits go. Below we will assume you want to make commits to "develop".</p>
+
+<h2><a name="index3h2"></a>Ensure you have a GitHub account</h2>
+
+<p>Please make sure your GitHub account is listed under <code>GITHUB_USERNAME</code> at <a href="https://github.com/dvn/dvn-sourceforge2github/blob/master/authors.tsv">https://github.com/dvn/dvn-sourceforge2github/blob/master/authors.tsv</a></p>
+
+<h2><a name="index4h2"></a>Set up an ssh keypair (if you haven't already)</h2>
+
+<p>You <em>can</em> use git with passwords over HTTPS but it's much nicer to set up SSH keys.</p>
+
+<p><a href="https://github.com/settings/ssh">https://github.com/settings/ssh</a> is the place to manage the ssh keys GitHub knows about for you. That page also links to a nice howto: <a href="https://help.github.com/articles/generating-ssh-keys">https://help.github.com/articles/generating-ssh-keys</a></p>
+
+<p>From the terminal, <code>ssh-keygen</code> will create new ssh keys for you:</p>
+
+<ul>
+<li>private key: <code>~/.ssh/id_rsa</code>
+
+<ul>
+<li>It is <strong>very important to protect your private key</strong>. If someone else acquires it, they can access private repositories on GitHub and make commits as you! Ideally, you'll store your ssh keys on an encrypted volume and protect your private key with a password when prompted for one by <code>ssh-keygen</code>. See also "Why do passphrases matter" at <a href="https://help.github.com/articles/generating-ssh-keys">https://help.github.com/articles/generating-ssh-keys</a></li>
+</ul>
+</li>
+<li>public key: <code>~/.ssh/id_rsa.pub</code></li>
+</ul>
+
+
+<h2><a name="index5h2"></a>Clone the repo</h2>
+
+<p>In NetBeans 7.1.1 or higher, click Team, then Git, then Clone.</p>
+
+<h3><a name="index1h3"></a>Remote Repository</h3>
+
+<ul>
+<li>Repository URL: <code>github.com:IQSS/dvn.git</code></li>
+<li>Username: <code>git</code></li>
+<li>Private/Public Key
+
+<ul>
+<li>Private Key File: <code>/Users/[YOUR_USERNAME]/.ssh/id_rsa</code></li>
+</ul>
+</li>
+<li>Passphrase: (the passphrase you chose while running <code>ssh-keygen</code>)</li>
+</ul>
+
+
+<p>Click Next.</p>
+
+<h3><a name="index2h3"></a>Remote Branches</h3>
+
+<p>Under Select Remote Branches check both of these:</p>
+
+<ul>
+<li><code>develop*</code></li>
+<li><code>master*</code></li>
+</ul>
+
+
+<p>Click Next.</p>
+
+<h3><a name="index3h3"></a>Destination Directory</h3>
+
+<ul>
+<li>Parent Directory: <code>/Users/[YOUR_USERNAME]/NetBeansProjects</code></li>
+<li>Clone Name: <code>dvn</code></li>
+<li>Checkout Branch: <code>develop*</code></li>
+</ul>
+
+
+<p>Click Finish.</p>
+
+<p>At this point, you'll need to quit NetBeans so we can retrieve nbproject files from git history. Open a terminal and run these commands:</p>
+
+<pre><code>cd ~/NetBeansProjects/dvn
+git checkout f1dc53c src/DVN-web/nbproject
+git checkout f1dc53c src/DVN-ingest/nbproject
+</code></pre>
+
+<p>Then, run <code>git status</code> and unstage any files that git shows as new:</p>
+
+<pre><code>git reset HEAD path/to/files-git-status-shows-as-new
+</code></pre>
+
+<p>At this point, your nbproject files should be in place.</p>
+
+<p>Launch NetBeans and it should detect 5 projects. Click Open Project. Select DVN-web and check Open Required (so that DVN-ingest is also opened) and click Open.</p>
+
+<p>Expect to see a dialog about reference problems. We need to configure libraries in NetBeans.</p>
+
+<p>Please note that you should only have two projects open (DVN-web and DVN-ingest). If you click File -&gt; Open Project you may see other projects such as DVN-EAR, DVN-EJB, and DVN-lockss but you should not open them or you will likely see build errors.</p>
+
+<h2><a name="index6h2"></a>Install ICEfaces plugin</h2>
+
+<p>Download <a href="http://dvn.iq.harvard.edu/dev/icefaces/ICEfaces-2.0.2-Netbeans-7.0.zip">http://dvn.iq.harvard.edu/dev/icefaces/ICEfaces-2.0.2-Netbeans-7.0.zip</a> and unzip it. Then click Tools, Plugins, Downloaded, Add Plugins, and select all three nbm files.</p>
+
+<p>Afterwards you'll need to fix one of the plugins:</p>
+
+<ul>
+<li>Click Tools, then Ant Libraries</li>
+<li>Click "ICEfaces Components (2.0.2)"</li>
+<li>Click the red library (<code>nbinst://org.netbeans.libs.commons_logging/modules/ext/commons-logging-1.1.jar</code>) and click Remove</li>
+<li>Click "Add JAR/folder" and add <code>~/NetBeansProjects/dvn/lib/dvn-lib-WEB/commons-logging.jar</code> (to replace the library you removed)</li>
+</ul>
+
+
+<h2><a name="index7h2"></a>Configure NetBeans libraries</h2>
+
+<p>Create the following 5 custom libraries using Tools -&gt; Ant Libraries -&gt; New Library:</p>
+
+<ul>
+<li>dvn-lib-COMMON</li>
+<li>dvn-lib-EJB</li>
+<li>dvn-lib-WEB</li>
+<li>dvn-lib-NETWORKDATA</li>
+<li>dvn-lib-NETWORKDATA-EXTRA</li>
+</ul>
+
+
+<p>For each of these, simply select all the jar files from the directories</p>
+
+<ul>
+<li>lib/dvn-lib-COMMON</li>
+<li>lib/dvn-lib-EJB</li>
+<li>lib/dvn-lib-WEB</li>
+<li>lib/dvn-lib-NetworkData</li>
+<li>lib/dvn-lib-NetworkData-EXTRA</li>
+</ul>
+
+
+<p>respectively.</p>
+
+<p>Finally, add the following 5 JAR files in the Glassfish directory as compile-time libraries to your project:</p>
+
+<p>In NetBeans, open the "Properties" menu of the DVN-web project; then go to Libraries. Add the following 5 jar files, on at a time:</p>
+
+<ul>
+<li>auto-depends.jar</li>
+<li>common-util.jar</li>
+<li>config-api.jar</li>
+<li>grizzly-config.jar</li>
+<li>internal-api.jar</li>
+</ul>
+
+
+<p>by clicking on "Add JAR/Folder", then selecting each jar in the .../glassfish/modules directory of your 3.1.2 installation. (For example, /Applications/NetBeans/glassfish-3.1.2/glassfish/modules). Leave the "Package" box unchecked for each of these.</p>
+
+<h2><a name="index8h2"></a>Files changed by NetBeans during a clone</h2>
+
+<p>After cloning the project from GitHub, NetBeans 7.2.1 seems to change a number of files even before you do anything...</p>
+
+<pre><code>murphy:dvn pdurbin$ git status
+# On branch develop
+# Changes not staged for commit:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+#
+#       modified:   src/DVN-ingest/nbproject/build-impl.xml
+#       modified:   src/DVN-ingest/nbproject/genfiles.properties
+#       modified:   src/DVN-web/nbproject/genfiles.properties
+#       modified:   src/DVN-web/nbproject/jaxws-build.xml
+#       modified:   src/DVN-web/nbproject/project.properties
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+murphy:dvn pdurbin$ 
+</code></pre>
+
+<p>For now, we don't want developers to push these changes up to GitHub. To have your local git clone of the repo not report changes to these files, use the following command:</p>
+
+<pre><code>murphy:dvn pdurbin$ git update-index --assume-unchanged src/DVN-ingest/nbproject/build-impl.xml src/DVN-ingest/nbproject/genfiles.properties src/DVN-web/nbproject/genfiles.properties src/DVN-web/nbproject/jaxws-build.xml src/DVN-web/nbproject/project.properties
+murphy:dvn pdurbin$ 
+</code></pre>
+
+<p>At this point, <code>git status</code> (and Netbeans) reports no changes, which is what we expect from a freshly cloned git repo:</p>
+
+<pre><code>murphy:dvn pdurbin$ git status
+# On branch develop
+nothing to commit (working directory clean)
+murphy:dvn pdurbin$ 
+</code></pre>
+
+<p>(In the future we may remove some of these files from tracking with <code>git rm --cached</code> after we've run <code>git update-index --no-assume-unchanged</code> on some files. For more discussion of nbproject files and git see also <a href="http://irclog.iq.harvard.edu/dvn/2013-01-15#i_363">http://irclog.iq.harvard.edu/dvn/2013-01-15#i_363</a> and <a href="https://redmine.hmdc.harvard.edu/issues/1188#note-13">https://redmine.hmdc.harvard.edu/issues/1188#note-13</a> )</p>
+
+<h2><a name="index9h2"></a>Pushing your commits to GitHub</h2>
+
+<p>By following the instructions above, you should be in the "develop" branch, which is where we want to make commits as we work toward the next release.</p>
+
+<p>You can verify which branch you are on by clicking Team then "Repository Browser".</p>
+
+<p>You should see <code>dvn [develop]</code> at the root of the tree and <strong>develop</strong> in bold under Branches -&gt; Local</p>
+
+<p>After making your commit, push it to GitHub by clicking Team -&gt; Remote -&gt; Push, then Next (to use your configured remote repository), then checking <strong>develop</strong> and Finish.</p>
+
+<p>Your commit should now appear on GitHub in the develop branch: <a href="https://github.com/IQSS/dvn/commits/develop">https://github.com/IQSS/dvn/commits/develop</a></p>
+
+<p>Your commit should <strong>not</strong> appear in the master branch on GitHub: <a href="https://github.com/IQSS/dvn/commits/master">https://github.com/IQSS/dvn/commits/master</a>  . Not yet anyway. Remember, we only merge commits into master when we are ready to release.</p>
+
+<h2><a name="index10h2"></a>Switching to the master branch to merge commits from the develop branch</h2>
+
+<p>We should really only need to switch from the develop branch to the master branch as we prepare for a release.</p>
+
+<p>First, we check out the master branch by clicking Team -&gt; Git -&gt; Branch -&gt; Switch to Branch.</p>
+
+<p>Change Branch to "origin/master" and check the box for "Checkout as New Branch" and fill in "master" as the "Branch Name" to match the name of the branch we're switching to. Then click "Switch".</p>
+
+<p>Now, in the Git Repository Browser (from Team -&gt; Repository Browser) the root of the tree should say <code>dvn [master]</code> and you should see two branches under Branches -&gt; Local. <strong>master</strong> should be in bold and develop should not.</p>
+
+<p>FIXME: explain how to merge commits into master for a final release (and how to tag the release)</p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+<div id="backlinks">
+Links:
+
+<a href="../deploy/">deploy</a>
+
+<a href="../">index</a>
+
+<a href="../sidebar/">sidebar</a>
+
+
+</div>
+
+
+
+
+
+
+<div class="pagedate">
+Last <a href="FIXME">updated</a> <span class="date">Thu Apr  4 09:54:56 2013</span>
+<!-- Created <span class="date">Thu Apr  4 09:54:56 2013</span> -->
+</div>
+
+</div>
+
+
+<!-- from DVN Developer's Guide -->
+</div>
+
+</div>
+
+<hr>
+
+<div>
+DVN Dev Team
+</div>
+
+</body>
+</html>

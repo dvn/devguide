@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+<!-- <link rel="alternate" type="application/atom+xml" href="http://git.example.com/?p=wiki.git;a=atom" title="wiki.example.com commits"/> -->
+<title>branches</title>
+
+<link rel="stylesheet" href="../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../">DVN Developer's Guide</a>/ 
+
+</span>
+<span class="title">
+branches
+
+</span>
+</span>
+
+</div>
+
+<!--
+
+<div class="actions">
+<ul>
+
+
+
+<li><a href="FIXME">History</a></li>
+
+
+
+
+
+
+
+</ul>
+</div>
+
+-->
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><a href="../build/">Build</a></li>
+<li><a href="../deploy/">Deploy</a></li>
+<li><span class="selflink">Branches</span></li>
+<li><a href="../tips/">Tips</a></li>
+</ul>
+
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+
+
+<div class="toc">
+	<ol>
+		<li class="L2"><a href="#index1h2">Current list of branches</a>
+		</li>
+		<li class="L2"><a href="#index2h2">New branching model: develop vs. master</a>
+		</li>
+		<li class="L2"><a href="#index3h2">Feature branches</a>
+		<ol>
+			<li class="L3"><a href="#index1h3">Example feature branch: 2656-lucene</a>
+			</li>
+		</ol>
+		</li>
+	</ol>
+</div>
+
+
+<h2><a name="index1h2"></a>Current list of branches</h2>
+
+<p><a href="https://github.com/IQSS/dvn/branches">https://github.com/IQSS/dvn/branches</a></p>
+
+<h2><a name="index2h2"></a>New branching model: develop vs. master</h2>
+
+<p><a href="http://nvie.com/posts/a-successful-git-branching-model/"><img src="../images/master-develop.png" align="right"></a></p>
+
+<p>Please note that with the move to git, we are adopting the branching model described at <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a></p>
+
+<p>In this branching model there are two persistent branches:</p>
+
+<ul>
+<li>develop: where all new commits go</li>
+<li>master: where code gets merged and tagged as a release</li>
+</ul>
+
+
+<p>That is to say, <strong>please make your commits on the develop branch, not the master branch</strong>.</p>
+
+<h2><a name="index3h2"></a>Feature branches</h2>
+
+<blockquote><p>"The essence of a feature branch is that it exists as long as the feature is in development, but will eventually be merged back into develop (to definitely add the new feature to the upcoming release) or discarded (in case of a disappointing experiment)." -- <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a></p></blockquote>
+
+<h3><a name="index1h3"></a>Example feature branch: 2656-lucene</h3>
+
+<p>First, we create the branch and check it out:</p>
+
+<pre><code>murphy:dvn pdurbin$ git branch
+  2656-solr
+* develop
+murphy:dvn pdurbin$ git branch 2656-lucene
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git branch
+  2656-lucene
+  2656-solr
+* develop
+murphy:dvn pdurbin$ git checkout 2656-lucene
+Switched to branch '2656-lucene'
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git status
+# On branch 2656-lucene
+nothing to commit (working directory clean)
+murphy:dvn pdurbin$ 
+</code></pre>
+
+<p>Then, we make a change and a commit, and push it to <a href="https://github.com/iqss/dvn/tree/2656-lucene">https://github.com/iqss/dvn/tree/2656-lucene</a> (creating a new remote branch):</p>
+
+<pre><code>murphy:dvn pdurbin$ vim src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git commit -m 'start lucene faceting branch' src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java
+[2656-lucene 3b82f88] start lucene faceting branch
+ 1 file changed, 73 insertions(+), 2 deletions(-)
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git push origin 2656-lucene
+Counting objects: 25, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (13/13), 2.23 KiB, done.
+Total 13 (delta 6), reused 0 (delta 0)
+To git@github.com:IQSS/dvn.git
+ * [new branch]      2656-lucene -&gt; 2656-lucene
+murphy:dvn pdurbin$ 
+</code></pre>
+
+<p>As we work on the feature branch, we merge the latest changes from "develop". We want to resolve conflicts in the feature branch itself so that the feature branch will merge cleanly into "develop" when we're ready. In the example below, we use <code>git mergetool</code> and <code>opendiff</code> to resolve conflicts and save the merge. Then we push the newly-merged 2656-lucene feature branch to GitHub.</p>
+
+<pre><code>murphy:dvn pdurbin$ git branch
+* 2656-lucene
+  2656-solr
+  develop
+murphy:dvn pdurbin$ git checkout develop
+murphy:dvn pdurbin$ git branch
+  2656-lucene
+  2656-solr
+* develop
+murphy:dvn pdurbin$ git pull
+remote: Counting objects: 206, done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 120 (delta 70), reused 96 (delta 46)
+Receiving objects: 100% (120/120), 17.65 KiB, done.
+Resolving deltas: 100% (70/70), completed with 40 local objects.
+From github.com:IQSS/dvn
+   8fd223d..9967413  develop    -&gt; origin/develop
+Updating 8fd223d..9967413
+Fast-forward
+ .../admin/EditNetworkPrivilegesServiceBean.java  |    5 +-
+(snip)
+ src/DVN-web/web/study/StudyFilesFragment.xhtml   |    2 +-
+ 12 files changed, 203 insertions(+), 118 deletions(-)
+murphy:dvn pdurbin$ murphy:dvn pdurbin$ git pull
+remote: Counting objects: 206, done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 120 (delta 70), reused 96 (delta 46)
+Receiving objects: 100% (120/120), 17.65 KiB, done.
+Resolving deltas: 100% (70/70), completed with 40 local objects.
+From github.com:IQSS/dvn
+   8fd223d..9967413  develop    -&gt; origin/develop
+Updating 8fd223d..9967413
+Fast-forward
+ .../admin/EditNetworkPrivilegesServiceBean.java  |    5 +-
+(snip)
+ .../harvard/iq/dvn/core/web/study/StudyUI.java   |    2 +-
+ src/DVN-web/web/HomePage.xhtml                   |    5 +-
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git checkout 2656-lucene
+Switched to branch '2656-lucene'
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git merge develop
+Auto-merging src/DVN-web/web/BasicSearchFragment.xhtml
+CONFLICT (content): Merge conflict in src/DVN-web/web/BasicSearchFragment.xhtml
+Auto-merging src/DVN-web/src/edu/harvard/iq/dvn/core/web/BasicSearchFragment.java
+Auto-merging src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java
+Automatic merge failed; fix conflicts and then commit the result.
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git status
+# On branch 2656-lucene
+# Changes to be committed:
+#
+#       modified:   src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/admin/EditNetworkPrivilegesServiceBean.java
+(snip)
+#       new file:   src/DVN-web/web/admin/ChooseDataverseForCreateStudy.xhtml
+#       modified:   src/DVN-web/web/study/StudyFilesFragment.xhtml
+#
+# Unmerged paths:
+#   (use "git add/rm &lt;file&gt;..." as appropriate to mark resolution)
+#
+#       both modified:      src/DVN-web/web/BasicSearchFragment.xhtml
+#
+murphy:dvn pdurbin$ git mergetool
+merge tool candidates: opendiff kdiff3 tkdiff xxdiff meld tortoisemerge gvimdiff diffuse ecmerge p4merge araxis bc3 emerge vimdiff
+Merging:
+src/DVN-web/web/BasicSearchFragment.xhtml
+
+Normal merge conflict for 'src/DVN-web/web/BasicSearchFragment.xhtml':
+  {local}: modified file
+  {remote}: modified file
+Hit return to start merge resolution tool (opendiff):
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git add .
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git commit -m "Merge branch 'develop' into 2656-lucene"
+[2656-lucene 519cd8c] Merge branch 'develop' into 2656-lucene
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git push origin 2656-lucene
+(snip)
+murphy:dvn pdurbin$ 
+</code></pre>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+<div id="backlinks">
+Links:
+
+<a href="../build/">build</a>
+
+<a href="../sidebar/">sidebar</a>
+
+
+</div>
+
+
+
+
+
+
+<div class="pagedate">
+Last <a href="FIXME">updated</a> <span class="date">Thu Apr  4 10:18:16 2013</span>
+<!-- Created <span class="date">Thu Apr  4 09:44:51 2013</span> -->
+</div>
+
+</div>
+
+
+<!-- from DVN Developer's Guide -->
+</div>
+
+</div>
+
+<hr>
+
+<div>
+DVN Dev Team
+</div>
+
+</body>
+</html>
