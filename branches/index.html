@@ -67,6 +67,8 @@ branches
 <ul>
 <li><a href="../build/">Build</a></li>
 <li><a href="../deploy/">Deploy</a></li>
+<li><a href="../commit/">Commit</a></li>
+<li><a href="../push/">Push</a></li>
 <li><span class="selflink">Branches</span></li>
 <li><a href="../tips/">Tips</a></li>
 <li><a href="../errors/">Errors</a></li>
@@ -92,6 +94,8 @@ branches
 			<li class="L3"><a href="#index1h3">Example feature branch: 2656-lucene</a>
 			</li>
 		</ol>
+		</li>
+		<li class="L2"><a href="#index4h2">Switching to the master branch to merge commits from the develop branch</a>
 		</li>
 	</ol>
 </div>
@@ -247,6 +251,18 @@ murphy:dvn pdurbin$ git push origin 2656-lucene
 murphy:dvn pdurbin$ 
 </code></pre>
 
+<h2><a name="index4h2"></a>Switching to the master branch to merge commits from the develop branch</h2>
+
+<p>We should really only need to switch from the develop branch to the master branch as we prepare for a release.</p>
+
+<p>First, we check out the master branch by clicking Team -&gt; Git -&gt; Branch -&gt; Switch to Branch.</p>
+
+<p>Change Branch to "origin/master" and check the box for "Checkout as New Branch" and fill in "master" as the "Branch Name" to match the name of the branch we're switching to. Then click "Switch".</p>
+
+<p>Now, in the Git Repository Browser (from Team -&gt; Repository Browser) the root of the tree should say <code>dvn [master]</code> and you should see two branches under Branches -&gt; Local. <strong>master</strong> should be in bold and develop should not.</p>
+
+<p>FIXME: explain how to merge commits into master for a final release (and how to tag the release)</p>
+
 </div>
 
 
@@ -278,7 +294,7 @@ Links:
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Thu Apr  4 10:18:16 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Fri Apr  5 09:58:22 2013</span>
 <!-- Created <span class="date">Thu Apr  4 10:18:16 2013</span> -->
 </div>
 
