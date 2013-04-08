@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+<!-- <link rel="alternate" type="application/atom+xml" href="http://git.example.com/?p=wiki.git;a=atom" title="wiki.example.com commits"/> -->
+<title>faceted</title>
+
+<link rel="stylesheet" href="../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../">DVN Developer's Guide</a>/ 
+
+<a href="../../">features</a>/ 
+
+<a href="../">search</a>/ 
+
+</span>
+<span class="title">
+faceted
+
+</span>
+</span>
+
+</div>
+
+<!--
+
+<div class="actions">
+<ul>
+
+
+
+<li><a href="FIXME">History</a></li>
+
+
+
+
+
+
+
+</ul>
+</div>
+
+-->
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><a href="../../../build/">Build</a></li>
+<li><a href="../../../deploy/">Deploy</a></li>
+<li><a href="../../../commit/">Commit</a></li>
+<li><a href="../../../push/">Push</a></li>
+<li><a href="../../../branches/">Branches</a></li>
+<li><a href="../../">Features</a></li>
+<li><a href="../../../tips/">Tips</a></li>
+<li><a href="../../../errors/">Errors</a></li>
+</ul>
+
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<p>In <a href="https://redmine.hmdc.harvard.edu/issues/2656">https://redmine.hmdc.harvard.edu/issues/2656</a> faceted search is being added to DVN to replace non-faceted search:</p>
+
+<div class="toc">
+	<ol>
+		<li class="L2"><a href="#index1h2">Home page - DONE</a>
+		<ol>
+			<li class="L3"><a href="#index1h3">Suggested search - DONE</a>
+			</li>
+			<li class="L3"><a href="#index2h3">Basic search  - DONE</a>
+			</li>
+		</ol>
+		</li>
+		<li class="L2"><a href="#index2h2">Advanced search page - PARTIAL</a>
+		<ol>
+			<li class="L3"><a href="#index3h3">Basic search from the advanced search page - DONE</a>
+			</li>
+			<li class="L3"><a href="#index4h3">Study Cataloging Information - DONE</a>
+			</li>
+			<li class="L3"><a href="#index5h3">Tabular Data Variable Information</a>
+			</li>
+			<li class="L3"><a href="#index6h3">FITS File Information</a>
+			</li>
+		</ol>
+		</li>
+		<li class="L2"><a href="#index3h2">Subsearch ("within these results" after a search)</a>
+		</li>
+		<li class="L2"><a href="#index4h2">Dataverse-specific search</a>
+		</li>
+		<li class="L2"><a href="#index5h2">All studies listing - PARTIAL</a>
+		</li>
+		<li class="L2"><a href="#index6h2">Dynamic collections</a>
+		</li>
+		<li class="L2"><a href="#index7h2">OAI Harvesting Sets</a>
+		</li>
+	</ol>
+</div>
+
+
+<h2><a name="index1h2"></a>Home page - DONE</h2>
+
+<p><a href="http://localhost:8080/dvn/">http://localhost:8080/dvn/</a></p>
+
+<h3><a name="index1h3"></a>Suggested search - DONE</h3>
+
+<p>User clicks one of the suggested terms on the home page.</p>
+
+<h3><a name="index2h3"></a>Basic search  - DONE</h3>
+
+<p>User enters a query from the home page.</p>
+
+<h2><a name="index2h2"></a>Advanced search page - PARTIAL</h2>
+
+<p><a href="http://localhost:8080/dvn/faces/AdvSearchPage.xhtml">http://localhost:8080/dvn/faces/AdvSearchPage.xhtml</a></p>
+
+<h3><a name="index3h3"></a>Basic search from the advanced search page - DONE</h3>
+
+<p>This works exactly as basic search from above. The same code is included in the page.</p>
+
+<h3><a name="index4h3"></a>Study Cataloging Information - DONE</h3>
+
+<p>This is similar to basic search but you can add "contains" or "does not contain" for various fields at once:</p>
+
+<ul>
+<li>Title</li>
+<li>Producer</li>
+<li>Production Date</li>
+<li>Time Period Covered Start</li>
+</ul>
+
+
+<h3><a name="index5h3"></a>Tabular Data Variable Information</h3>
+
+<p>This search looks into the variables of uploaded files (tab-separated, Stata, SPSS, etc.).</p>
+
+<h3><a name="index6h3"></a>FITS File Information</h3>
+
+<h2><a name="index3h2"></a>Subsearch ("within these results" after a search)</h2>
+
+<p>You are given the option to check this box after search from the home page or the advanced search page.</p>
+
+<h2><a name="index4h2"></a>Dataverse-specific search</h2>
+
+<p><a href="http://localhost:8080/dvn/dv/mra">http://localhost:8080/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked).</p>
+
+<h2><a name="index5h2"></a>All studies listing - PARTIAL</h2>
+
+<p>From the home page you can click "view more" to see a list of all studies at <a href="http://localhost:8080/dvn/faces/StudyListingPage.xhtml?mode=100">http://localhost:8080/dvn/faces/StudyListingPage.xhtml?mode=100</a> and we probably want to have facets there.</p>
+
+<p>Code has been added but commented out because retrieving all the facets slows down the listing.</p>
+
+<h2><a name="index6h2"></a>Dynamic collections</h2>
+
+<p>Dynamic collections are configured within a dataverse: <a href="http://guides.thedata.org/book/manage-collections">http://guides.thedata.org/book/manage-collections</a></p>
+
+<h2><a name="index7h2"></a>OAI Harvesting Sets</h2>
+
+<p>OAI harvesting is configured at the DVN level: <a href="http://guides.thedata.org/book/manage-oai-harvesting-sets">http://guides.thedata.org/book/manage-oai-harvesting-sets</a></p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last <a href="FIXME">updated</a> <span class="date">Mon Apr  8 15:44:01 2013</span>
+<!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
+</div>
+
+</div>
+
+
+<!-- from DVN Developer's Guide -->
+</div>
+
+</div>
+
+<hr>
+
+<div>
+DVN Dev Team
+</div>
+
+</body>
+</html>
