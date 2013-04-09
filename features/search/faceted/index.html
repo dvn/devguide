@@ -110,15 +110,17 @@ faceted
 			</li>
 		</ol>
 		</li>
-		<li class="L2"><a href="#index3h2">Subsearch ("within these results" after a search)</a>
+		<li class="L2"><a href="#index3h2">New search from study listing page - DONE</a>
 		</li>
-		<li class="L2"><a href="#index4h2">Dataverse-specific search</a>
+		<li class="L2"><a href="#index4h2">Subsearch ("within these results" after a search)</a>
 		</li>
-		<li class="L2"><a href="#index5h2">All studies listing - PARTIAL</a>
+		<li class="L2"><a href="#index5h2">Dataverse-specific search</a>
 		</li>
-		<li class="L2"><a href="#index6h2">Dynamic collections</a>
+		<li class="L2"><a href="#index6h2">All studies listing - PARTIAL</a>
 		</li>
-		<li class="L2"><a href="#index7h2">OAI Harvesting Sets</a>
+		<li class="L2"><a href="#index7h2">Dynamic collections</a>
+		</li>
+		<li class="L2"><a href="#index8h2">OAI Harvesting Sets - DONE</a>
 		</li>
 	</ol>
 </div>
@@ -162,27 +164,35 @@ faceted
 
 <h3><a name="index6h3"></a>FITS File Information</h3>
 
-<h2><a name="index3h2"></a>Subsearch ("within these results" after a search)</h2>
+<h2><a name="index3h2"></a>New search from study listing page - DONE</h2>
+
+<p>A fast way to get to the study listing page is by clicking a suggested term from the homepage: <a href="http://localhost:8080/dvn/">http://localhost:8080/dvn/</a></p>
+
+<h2><a name="index4h2"></a>Subsearch ("within these results" after a search)</h2>
 
 <p>You are given the option to check this box after search from the home page or the advanced search page.</p>
 
-<h2><a name="index4h2"></a>Dataverse-specific search</h2>
+<h2><a name="index5h2"></a>Dataverse-specific search</h2>
 
 <p><a href="http://localhost:8080/dvn/dv/mra">http://localhost:8080/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked).</p>
 
-<h2><a name="index5h2"></a>All studies listing - PARTIAL</h2>
+<p>Adding facets to this search is complicated. In this search, the list of studyIds from the dataverse is passed as a parameter and the results are filtered down to only studies from the dataverse. In order to filter facet results down to the dataverse, we'll need to alter the query. See <a href="https://github.com/IQSS/dvn/blob/b40c4a0736a5b51df29d45dfc0af2a68ba6c5274/src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java#L892">https://github.com/IQSS/dvn/blob/b40c4a0736a5b51df29d45dfc0af2a68ba6c5274/src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java#L892</a></p>
+
+<h2><a name="index6h2"></a>All studies listing - PARTIAL</h2>
 
 <p>From the home page you can click "view more" to see a list of all studies at <a href="http://localhost:8080/dvn/faces/StudyListingPage.xhtml?mode=100">http://localhost:8080/dvn/faces/StudyListingPage.xhtml?mode=100</a> and we probably want to have facets there.</p>
 
-<p>Code has been added but commented out because retrieving all the facets slows down the listing.</p>
+<p>Code to do a MatchAllDocsQuery has been added but commented out and is not well tested and may need a re-write.</p>
 
-<h2><a name="index6h2"></a>Dynamic collections</h2>
+<h2><a name="index7h2"></a>Dynamic collections</h2>
 
 <p>Dynamic collections are configured within a dataverse: <a href="http://guides.thedata.org/book/manage-collections">http://guides.thedata.org/book/manage-collections</a></p>
 
-<h2><a name="index7h2"></a>OAI Harvesting Sets</h2>
+<h2><a name="index8h2"></a>OAI Harvesting Sets - DONE</h2>
 
 <p>OAI harvesting is configured at the DVN level: <a href="http://guides.thedata.org/book/manage-oai-harvesting-sets">http://guides.thedata.org/book/manage-oai-harvesting-sets</a></p>
+
+<p>Facets results have not been added as they are not necessary (only a simple list of IDs ir required) but we should ensure that changes have not broken the search used by OAI harvesting sets.</p>
 
 </div>
 
@@ -205,7 +215,7 @@ faceted
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Mon Apr  8 15:44:01 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Tue Apr  9 13:50:05 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
 </div>
 
