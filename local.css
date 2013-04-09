@@ -23,31 +23,37 @@ form {
 
 h1 {
 	margin: .8em 0 0 -4%;
+        margin-left: 0px;
 	line-height: 1.3;
 }
 
 h2 {
 	margin: .8em 0 0 -4%;
+        margin-left: 0px;
 	line-height: 1.3;
 }
 
 h3 {
 	margin: .8em 0 0 -3%;
+        margin-left: 4px;
 	line-height: 1.3;
 }
 
 h4 {
 	margin: .8em 0 0 -3%;
+        margin-left: 8px;
 	line-height: 1.3;
 }
 
 h5 {
 	margin: .8em 0 0 -2%;
+        margin-left: 12px;
 	line-height: 1.3;
 }
 
 h6 {
 	margin: .8em 0 0 -1%;
+        margin-left: 16px;
 	line-height: 1.3;
 }
 
@@ -60,10 +66,15 @@ ol {
 	line-height: 1.2;
 }
 
+p {
+        margin-left: 8px;
+}
+
 pre {
 	margin: .75em 0;
 	line-height: 1.0;
 	color: #461b7e;
+        margin-left: 8px;
 }
 
 td {
@@ -80,7 +91,7 @@ ul {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-left: 0
+	/*margin-left: 0*/
 } 
 
 .pagetitle {
