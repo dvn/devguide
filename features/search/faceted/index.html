@@ -86,7 +86,7 @@ faceted
 <div id="pagebody">
 
 <div id="content">
-<p>In <a href="https://redmine.hmdc.harvard.edu/issues/2656">https://redmine.hmdc.harvard.edu/issues/2656</a> faceted search is being added to DVN to replace non-faceted search:</p>
+<p>In <a href="https://redmine.hmdc.harvard.edu/issues/2656">https://redmine.hmdc.harvard.edu/issues/2656</a> faceted search is being added to DVN to replace non-faceted search (where appropriate):</p>
 
 <div class="toc">
 	<ol>
@@ -126,9 +126,11 @@ faceted
 </div>
 
 
+<p><a href="http://dvn-3.hmdc.harvard.edu/dvn/">http://dvn-3.hmdc.harvard.edu/dvn/</a> is the place to test faceted search because war files built from the latest code at <a href="https://github.com/iqss/dvn/tree/2656-lucene">https://github.com/iqss/dvn/tree/2656-lucene</a> are deployed there periodically.</p>
+
 <h2><a name="index1h2"></a>Home page - DONE</h2>
 
-<p><a href="http://localhost:8080/dvn/">http://localhost:8080/dvn/</a></p>
+<p><a href="http://dvn-3.hmdc.harvard.edu/dvn/">http://dvn-3.hmdc.harvard.edu/dvn/</a></p>
 
 <h3><a name="index1h3"></a>Suggested search - DONE</h3>
 
@@ -140,7 +142,7 @@ faceted
 
 <h2><a name="index2h2"></a>Advanced search page - PARTIAL</h2>
 
-<p><a href="http://localhost:8080/dvn/faces/AdvSearchPage.xhtml">http://localhost:8080/dvn/faces/AdvSearchPage.xhtml</a></p>
+<p><a href="http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml">http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml</a></p>
 
 <h3><a name="index3h3"></a>Basic search from the advanced search page - DONE</h3>
 
@@ -166,7 +168,7 @@ faceted
 
 <h2><a name="index3h2"></a>New search from study listing page - DONE</h2>
 
-<p>A fast way to get to the study listing page is by clicking a suggested term from the homepage: <a href="http://localhost:8080/dvn/">http://localhost:8080/dvn/</a></p>
+<p>A fast way to get to the study listing page is by clicking a suggested term from the homepage: <a href="http://dvn-3.hmdc.harvard.edu/dvn/">http://dvn-3.hmdc.harvard.edu/dvn/</a></p>
 
 <h2><a name="index4h2"></a>Subsearch ("within these results" after a search)</h2>
 
@@ -174,13 +176,13 @@ faceted
 
 <h2><a name="index5h2"></a>Dataverse-specific search</h2>
 
-<p><a href="http://localhost:8080/dvn/dv/mra">http://localhost:8080/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked).</p>
+<p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked).</p>
 
 <p>Adding facets to this search is complicated. In this search, the list of studyIds from the dataverse is passed as a parameter and the results are filtered down to only studies from the dataverse. In order to filter facet results down to the dataverse, we'll need to alter the query. See <a href="https://github.com/IQSS/dvn/blob/b40c4a0736a5b51df29d45dfc0af2a68ba6c5274/src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java#L892">https://github.com/IQSS/dvn/blob/b40c4a0736a5b51df29d45dfc0af2a68ba6c5274/src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java#L892</a></p>
 
 <h2><a name="index6h2"></a>All studies listing - PARTIAL</h2>
 
-<p>From the home page you can click "view more" to see a list of all studies at <a href="http://localhost:8080/dvn/faces/StudyListingPage.xhtml?mode=100">http://localhost:8080/dvn/faces/StudyListingPage.xhtml?mode=100</a> and we probably want to have facets there.</p>
+<p>From the home page you can click "view more" to see a list of all studies at <a href="http://dvn-3.hmdc.harvard.edu/dvn/faces/StudyListingPage.xhtml?mode=100">http://dvn-3.hmdc.harvard.edu/dvn/faces/StudyListingPage.xhtml?mode=100</a> and we probably want to have facets there.</p>
 
 <p>Code to do a MatchAllDocsQuery has been added but commented out and is not well tested and may need a re-write.</p>
 
@@ -215,7 +217,7 @@ faceted
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Tue Apr  9 13:50:05 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Tue Apr  9 14:33:43 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
 </div>
 
