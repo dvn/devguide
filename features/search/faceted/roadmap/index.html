@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+<!-- <link rel="alternate" type="application/atom+xml" href="http://git.example.com/?p=wiki.git;a=atom" title="wiki.example.com commits"/> -->
+<title>
+
+DVN Developer's Guide /
+
+features /
+
+search /
+
+faceted /
+
+roadmap
+</title>
+
+<link rel="stylesheet" href="../../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../../">DVN Developer's Guide</a> / 
+
+<a href="../../../">features</a> / 
+
+<a href="../../">search</a> / 
+
+<a href="../">faceted</a> / 
+
+</span>
+<span class="title">
+roadmap
+
+</span>
+</span>
+
+</div>
+
+<!--
+
+<div class="actions">
+<ul>
+
+
+
+<li><a href="FIXME">History</a></li>
+
+
+
+
+
+
+
+</ul>
+</div>
+
+-->
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><a href="../../../../build/">Build</a></li>
+<li><a href="../../../../deploy/">Deploy</a></li>
+<li><a href="../../../../commit/">Commit</a></li>
+<li><a href="../../../../push/">Push</a></li>
+<li><a href="../../../../branches/">Branches</a></li>
+<li><a href="../../../">Features</a></li>
+<li><a href="../../../../tips/">Tips</a></li>
+<li><a href="../../../../errors/">Errors</a></li>
+</ul>
+
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+
+
+<div class="toc">
+	<ol>
+		<li class="L2"><a href="#index1h2">How everyday search works</a>
+		</li>
+		<li class="L2"><a href="#index2h2">Narrowing search results</a>
+		</li>
+		<li class="L2"><a href="#index3h2">Forward compatibility with non-Lucene solutions</a>
+		</li>
+	</ol>
+</div>
+
+
+<h2><a name="index1h2"></a>How everyday search works</h2>
+
+<p>Everyday DVN search (users finding data) is designed around the StudyListingPage. That is to say, the goal is to list studies that match the query and display them on a page of results.</p>
+
+<p>Ultimately, the StudyListingPage works by receiving a list of IDs from the "study" table in the database. In code, a variable called "studyIds" is common to see.</p>
+
+<h2><a name="index2h2"></a>Narrowing search results</h2>
+
+<p>Searches are typically narrowed by passing an existing list of studyIds to a search function.  For example, a search from a dataverse such as <a href="https://dvn.iq.harvard.edu/dvn/dv/odum">https://dvn.iq.harvard.edu/dvn/dv/odum</a> passes in the studyIds of all studies in that dataverse, does a normal (non-faceted) query of Lucene, and then narrows the query results to studyIds in that dataverse.</p>
+
+<p>Any function that narrows results based on studyIds that have been passed to it needs to be re-written to support faceted results. The reason is that faceted results are returned by querying Lucene so any narrowing needs to be done by querying Lucene again, this time with a faceted search that matches only the facets in question. For example:</p>
+
+<pre><code>+(+(+title:data +productionDate:1989)) +$facets:dvName?ODUM
+</code></pre>
+
+<h2><a name="index3h2"></a>Forward compatibility with non-Lucene solutions</h2>
+
+<p>For a variety of reasons, <a href="http://lucene.apache.org/solr/">Solr</a> has been considered as a replacement for Lucene and some experimentation was done in <a href="https://github.com/IQSS/dvn/tree/2656-solr">https://github.com/IQSS/dvn/tree/2656-solr</a> but per <a href="https://redmine.hmdc.harvard.edu/issues/2656#note-12">https://redmine.hmdc.harvard.edu/issues/2656#note-12</a> Solr was abandoned because adopting it requires us to rewrite our business logic against a new API (SolrJ). If the Lucene code is ever significantly refactored, care should be taken to think about a potential move to a non-Lucene search solution such as Solr or <a href="http://www.elasticsearch.org">ElasticSearch</a>.</p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+<div id="backlinks">
+Links:
+
+<a href="../">faceted</a>
+
+
+</div>
+
+
+
+
+
+
+<div class="pagedate">
+Last <a href="FIXME">updated</a> <span class="date">Wed Apr 10 14:11:04 2013</span>
+<!-- Created <span class="date">Wed Apr 10 13:39:15 2013</span> -->
+</div>
+
+</div>
+
+
+<!-- from DVN Developer's Guide -->
+</div>
+
+</div>
+
+<hr>
+
+<div>
+DVN Dev Team
+</div>
+
+</body>
+</html>
