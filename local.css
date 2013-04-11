@@ -8,6 +8,11 @@ html {
 	padding: 0;
 }
 
+td, th {
+	border: 1px solid black;
+	padding: 4px;
+}
+
 html body {
     line-height: 1.3em;
     font-family: Tahoma, sans-serif;
