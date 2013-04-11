@@ -11,7 +11,7 @@
 
 DVN Developer's Guide /
 
-sitemap
+release
 </title>
 
 <link rel="stylesheet" href="../style.css" type="text/css" />
@@ -36,7 +36,7 @@ sitemap
 
 </span>
 <span class="title">
-sitemap
+release
 
 </span>
 </span>
@@ -78,7 +78,7 @@ sitemap
 <li><a href="../features/">Features</a></li>
 <li><a href="../tips/">Tips</a></li>
 <li><a href="../errors/">Errors</a></li>
-<li><span class="selflink">Sitemap</span></li>
+<li><a href="../sitemap/">Sitemap</a></li>
 </ul>
 
 
@@ -88,51 +88,44 @@ sitemap
 <div id="pagebody">
 
 <div id="content">
-<div class="map">
-<ul>
-<li><a href="../branches/" class="mapitem">branches</a>
-</li>
-<li><a href="../build/" class="mapitem">build</a>
-</li>
-<li><a href="../commit/" class="mapitem">commit</a>
-</li>
-<li><a href="../deploy/" class="mapitem">deploy</a>
-</li>
-<li><a href="../errors/" class="mapitem">errors</a>
-<ul>
-<li><a href="../errors/duplicate-class/" class="mapitem">duplicate-class</a>
-</li>
-</ul>
-</li>
-<li><a href="../features/" class="mapitem">features</a>
-<ul>
-<li><a href="../features/search/" class="mapitem">search</a>
-<ul>
-<li><a href="../features/search/faceted/" class="mapitem">faceted</a>
-<ul>
-<li><a href="../features/search/faceted/roadmap/" class="mapitem">roadmap</a>
-</li>
-<li><a href="../features/search/faceted/status/" class="mapitem">status</a>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="../push/" class="mapitem">push</a>
-</li>
-<li><a href="../release/" class="mapitem">release</a>
-</li>
-<li><a href="../sidebar/" class="mapitem">sidebar</a>
-</li>
-<li><a href="../tips/" class="mapitem">tips</a>
-</li>
-</ul>
+
+
+<div class="toc">
+	<ol>
+		<li class="L2"><a href="#index1h2">Merge develop into master</a>
+		</li>
+		<li class="L2"><a href="#index2h2">Tag the release</a>
+		</li>
+		<li class="L2"><a href="#index3h2">Make release available for download</a>
+		</li>
+	</ol>
 </div>
 
 
+<h2><a name="index1h2"></a>Merge develop into master</h2>
 
+<h2><a name="index2h2"></a>Tag the release</h2>
+
+<p>Here is an example of how the 3.3 tag ( <a href="https://github.com/IQSS/dvn/tree/3.3">https://github.com/IQSS/dvn/tree/3.3</a> ) was created and pushed to GitHub:</p>
+
+<pre><code>murphy:dvn pdurbin$ git branch
+  develop
+* master
+murphy:dvn pdurbin$ git tag -a 3.3 -m 'tagging master as 3.3'
+murphy:dvn pdurbin$ git tag
+3.3
+murphy:dvn pdurbin$ git push origin 3.3
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 172 bytes, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To git@github.com:IQSS/dvn.git
+ * [new tag]         3.3 -&gt; 3.3
+murphy:dvn pdurbin$
+</code></pre>
+
+<h2><a name="index3h2"></a>Make release available for download</h2>
+
+<p>Historically, releases have been made available at <a href="http://sourceforge.net/projects/dvn/files/dvn/">http://sourceforge.net/projects/dvn/files/dvn/</a> but more recently they have been available at <a href="http://dvn.github.io/downloads">http://dvn.github.io/downloads</a> as well.</p>
 
 </div>
 
@@ -149,22 +142,14 @@ sitemap
 
 
 
-<div id="backlinks">
-Links:
-
-<a href="../sidebar/">sidebar</a>
-
-
-</div>
-
 
 
 
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Thu Apr 11 10:54:35 2013</span>
-<!-- Created <span class="date">Wed Apr 10 14:16:09 2013</span> -->
+Last <a href="FIXME">updated</a> <span class="date">Thu Apr 11 11:30:03 2013</span>
+<!-- Created <span class="date">Thu Apr 11 11:23:44 2013</span> -->
 </div>
 
 </div>
