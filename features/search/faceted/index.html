@@ -128,7 +128,7 @@ faceted
 		<ol>
 			<li class="L3"><a href="#index7h3">Dataverse landing page?</a>
 			</li>
-			<li class="L3"><a href="#index8h3">New dataverse-specific search - DONE</a>
+			<li class="L3"><a href="#index8h3">New dataverse-specific search - PARTIAL</a>
 			</li>
 			<li class="L3"><a href="#index9h3">Subsearch ("within these results") after a search from a dataverse page</a>
 			</li>
@@ -198,11 +198,11 @@ faceted
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, the number of studies shown corresponds to that dataverse. That is, a search is performed.  Should we show faceted search results here? This is similar in concept to showing faceted results on the "all studies listing" page.</p>
 
-<h3><a name="index8h3"></a>New dataverse-specific search - DONE</h3>
+<h3><a name="index8h3"></a>New dataverse-specific search - PARTIAL</h3>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked).</p>
 
-<p>As of <a href="https://github.com/IQSS/dvn/commit/3f42a4c">https://github.com/IQSS/dvn/commit/3f42a4c</a> dataverse-specific search is based on facets which means that <code>+$facets:dvName?Murray Research Archive Original Collection</code> (for example) is appended to the normal query.</p>
+<p>As of <a href="https://github.com/IQSS/dvn/commit/3f42a4c">https://github.com/IQSS/dvn/commit/3f42a4c</a> dataverse-specific search is based on facets which means that <code>+$facets:dvName?Murray Research Archive Original Collection</code> (for example) is appended to the normal query. An initial search works fine but removing the facet for the dataverse itself results in strange behavior.</p>
 
 <h3><a name="index9h3"></a>Subsearch ("within these results") after a search from a dataverse page</h3>
 
@@ -245,7 +245,7 @@ faceted
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Tue Apr 16 12:05:30 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Tue Apr 16 15:47:27 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
 </div>
 
