@@ -124,7 +124,15 @@ faceted
 		</li>
 		<li class="L2"><a href="#index4h2">Subsearch ("within these results" after a search)</a>
 		</li>
-		<li class="L2"><a href="#index5h2">Dataverse-specific search</a>
+		<li class="L2"><a href="#index5h2">Dataverse pages - PARTIAL</a>
+		<ol>
+			<li class="L3"><a href="#index7h3">Dataverse landing page?</a>
+			</li>
+			<li class="L3"><a href="#index8h3">New dataverse-specific search - DONE</a>
+			</li>
+			<li class="L3"><a href="#index9h3">Subsearch ("within these results") after a search from a dataverse page</a>
+			</li>
+		</ol>
 		</li>
 		<li class="L2"><a href="#index6h2">All studies listing - PARTIAL</a>
 		</li>
@@ -184,11 +192,21 @@ faceted
 
 <p>You are given the option to check this box after search from the home page or the advanced search page.</p>
 
-<h2><a name="index5h2"></a>Dataverse-specific search</h2>
+<h2><a name="index5h2"></a>Dataverse pages - PARTIAL</h2>
+
+<h3><a name="index7h3"></a>Dataverse landing page?</h3>
+
+<p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, the number of studies shown corresponds to that dataverse. That is, a search is performed.  Should we show faceted search results here? This is similar in concept to showing faceted results on the "all studies listing" page.</p>
+
+<h3><a name="index8h3"></a>New dataverse-specific search - DONE</h3>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked).</p>
 
-<p>Adding facets to this search is complicated. In this search, the list of studyIds from the dataverse is passed as a parameter and the results are filtered down to only studies from the dataverse. In order to filter facet results down to the dataverse, we'll need to alter the query. See <a href="https://github.com/IQSS/dvn/blob/b40c4a0736a5b51df29d45dfc0af2a68ba6c5274/src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java#L892">https://github.com/IQSS/dvn/blob/b40c4a0736a5b51df29d45dfc0af2a68ba6c5274/src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java#L892</a></p>
+<p>As of <a href="https://github.com/IQSS/dvn/commit/3f42a4c">https://github.com/IQSS/dvn/commit/3f42a4c</a> dataverse-specific search is based on facets which means that <code>+$facets:dvName?Murray Research Archive Original Collection</code> (for example) is appended to the normal query.</p>
+
+<h3><a name="index9h3"></a>Subsearch ("within these results") after a search from a dataverse page</h3>
+
+<p>This will probably be solved when the main "within these results" area is refactored.</p>
 
 <h2><a name="index6h2"></a>All studies listing - PARTIAL</h2>
 
@@ -227,7 +245,7 @@ faceted
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Wed Apr 10 14:12:52 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Tue Apr 16 12:05:30 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
 </div>
 
