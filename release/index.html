@@ -106,21 +106,32 @@ release
 
 <h2><a name="index2h2"></a>Tag the release</h2>
 
-<p>Here is an example of how the 3.3 tag ( <a href="https://github.com/IQSS/dvn/tree/3.3">https://github.com/IQSS/dvn/tree/3.3</a> ) was created and pushed to GitHub:</p>
+<p>Here is an example of how the 3.4 tag ( <a href="https://github.com/IQSS/dvn/tree/3.4">https://github.com/IQSS/dvn/tree/3.4</a> ) was created and pushed to GitHub:</p>
 
 <pre><code>murphy:dvn pdurbin$ git branch
-  develop
-* master
-murphy:dvn pdurbin$ git tag -a 3.3 -m 'tagging master as 3.3'
+* develop
+  master
+murphy:dvn pdurbin$ git pull
+Already up-to-date.
+murphy:dvn pdurbin$ git checkout master
+Switched to branch 'master'
+murphy:dvn pdurbin$ git merge develop
+Updating fdbfe57..6ceb24f
+(snip)
+ create mode 100644 tools/installer/dvninstall/readme.md
 murphy:dvn pdurbin$ git tag
 3.3
-murphy:dvn pdurbin$ git push origin 3.3
+murphy:dvn pdurbin$ git tag -a 3.4 -m 'merged develop, tagging master as 3.4'
+murphy:dvn pdurbin$ git tag
+3.3
+3.4
+murphy:dvn pdurbin$ git push origin 3.4
 Counting objects: 1, done.
-Writing objects: 100% (1/1), 172 bytes, done.
+Writing objects: 100% (1/1), 182 bytes, done.
 Total 1 (delta 0), reused 0 (delta 0)
 To git@github.com:IQSS/dvn.git
- * [new tag]         3.3 -&gt; 3.3
-murphy:dvn pdurbin$
+ * [new tag]         3.4 -&gt; 3.4
+murphy:dvn pdurbin$ 
 </code></pre>
 
 <h2><a name="index3h2"></a>Make release available for download</h2>
@@ -148,7 +159,7 @@ murphy:dvn pdurbin$
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Thu Apr 11 11:30:03 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Mon Apr 22 11:47:06 2013</span>
 <!-- Created <span class="date">Thu Apr 11 11:23:44 2013</span> -->
 </div>
 
