@@ -122,12 +122,14 @@ roadmap
 
 <h2><a name="index2h2"></a>Narrowing search results</h2>
 
-<p>Searches are typically narrowed by passing an existing list of studyIds to a search function.  For example, a search from a dataverse such as <a href="https://dvn.iq.harvard.edu/dvn/dv/odum">https://dvn.iq.harvard.edu/dvn/dv/odum</a> passes in the studyIds of all studies in that dataverse, does a normal (non-faceted) query of Lucene, and then narrows the query results to studyIds in that dataverse.</p>
+<p>Historically, searches are narrowed by passing an existing list of studyIds to a search function.  For example, a search from a dataverse such as <a href="https://dvn.iq.harvard.edu/dvn/dv/odum">https://dvn.iq.harvard.edu/dvn/dv/odum</a> passes in the studyIds of all studies in that dataverse, does a normal (non-faceted) query of Lucene, and then narrows the query results to studyIds in that dataverse.</p>
 
 <p>Any function that narrows results based on studyIds that have been passed to it needs to be re-written to support faceted results. The reason is that faceted results are returned by querying Lucene so any narrowing needs to be done by querying Lucene again, this time with a faceted search that matches only the facets in question. For example:</p>
 
 <pre><code>+(+(+title:data +productionDate:1989)) +$facets:dvName?ODUM
 </code></pre>
+
+<p>Care must be taken, however, to make sure collection search continues to work because collections can contain studies that are part of a different dataverse.</p>
 
 <h2><a name="index3h2"></a>Forward compatibility with non-Lucene solutions</h2>
 
@@ -162,7 +164,7 @@ Links:
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Wed Apr 10 14:11:04 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Tue Apr 23 16:24:33 2013</span>
 <!-- Created <span class="date">Wed Apr 10 13:39:15 2013</span> -->
 </div>
 

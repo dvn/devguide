@@ -112,11 +112,15 @@ faceted
 		<ol>
 			<li class="L3"><a href="#index3h3">Basic search from the advanced search page - DONE</a>
 			</li>
-			<li class="L3"><a href="#index4h3">Study Cataloging Information - DONE</a>
+			<li class="L3"><a href="#index4h3">Study Cataloging Information - PARTIAL</a>
+			<ol>
+				<li class="L4"><a href="#index1h4">FIXME: Some advanced searches failing on dvn-3 (i.e. author)</a>
+				</li>
+			</ol>
 			</li>
-			<li class="L3"><a href="#index5h3">Tabular Data Variable Information</a>
+			<li class="L3"><a href="#index5h3">Tabular Data Variable Information (lower priority) - PARTIAL</a>
 			</li>
-			<li class="L3"><a href="#index6h3">FITS File Information</a>
+			<li class="L3"><a href="#index6h3">FITS File (metadata) Information (lower priority)</a>
 			</li>
 		</ol>
 		</li>
@@ -126,17 +130,25 @@ faceted
 		</li>
 		<li class="L2"><a href="#index5h2">Dataverse pages - PARTIAL</a>
 		<ol>
-			<li class="L3"><a href="#index7h3">Dataverse landing page?</a>
+			<li class="L3"><a href="#index7h3">Dataverse landing page? - DEFERRED</a>
 			</li>
 			<li class="L3"><a href="#index8h3">New dataverse-specific search - DONE</a>
 			</li>
 			<li class="L3"><a href="#index9h3">Collection search</a>
+			<ol>
+				<li class="L4"><a href="#index2h4">FIXME: Collection search should find studies from other dataverses</a>
+				</li>
+			</ol>
 			</li>
 			<li class="L3"><a href="#index10h3">Subsearch ("within these results") after a search from a dataverse page</a>
+			<ol>
+				<li class="L4"><a href="#index3h4">FIXME: Text above subsearch should show all previous and current terms</a>
+				</li>
+			</ol>
 			</li>
 		</ol>
 		</li>
-		<li class="L2"><a href="#index6h2">All studies listing - PARTIAL</a>
+		<li class="L2"><a href="#index6h2">All studies listing - DEFERRED</a>
 		</li>
 		<li class="L2"><a href="#index7h2">Dynamic collections</a>
 		</li>
@@ -168,7 +180,7 @@ faceted
 
 <p>This works exactly as basic search from above. The same code is included in the page.</p>
 
-<h3><a name="index4h3"></a>Study Cataloging Information - DONE</h3>
+<h3><a name="index4h3"></a>Study Cataloging Information - PARTIAL</h3>
 
 <p>This is similar to basic search but you can add "contains" or "does not contain" for various fields at once:</p>
 
@@ -180,11 +192,19 @@ faceted
 </ul>
 
 
-<h3><a name="index5h3"></a>Tabular Data Variable Information</h3>
+<h4><a name="index1h4"></a>FIXME: Some advanced searches failing on dvn-3 (i.e. author)</h4>
+
+<p>No results for searches on author at <a href="http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml">http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml</a> (seeing author rather than authorName and keyword rather than keywordValue)</p>
+
+<p>Combinations such as <code>+(+title:data +productionDate:1997)</code> seem to work fine.</p>
+
+<h3><a name="index5h3"></a>Tabular Data Variable Information (lower priority) - PARTIAL</h3>
 
 <p>This search looks into the variables of uploaded files (tab-separated, Stata, SPSS, etc.).</p>
 
-<h3><a name="index6h3"></a>FITS File Information</h3>
+<p>If you search for "data" under "Title" and "Variable Information" you should see facets.</p>
+
+<h3><a name="index6h3"></a>FITS File (metadata) Information (lower priority)</h3>
 
 <h2><a name="index3h2"></a>New search from study listing page - DONE</h2>
 
@@ -196,9 +216,11 @@ faceted
 
 <h2><a name="index5h2"></a>Dataverse pages - PARTIAL</h2>
 
-<h3><a name="index7h3"></a>Dataverse landing page?</h3>
+<h3><a name="index7h3"></a>Dataverse landing page? - DEFERRED</h3>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, the number of studies shown corresponds to that dataverse. That is, a search is performed.  Should we show faceted search results here? This is similar in concept to showing faceted results on the "all studies listing" page.</p>
+
+<p>We decide to defer on adding facets to dataverse landing pages, at least for now.</p>
 
 <h3><a name="index8h3"></a>New dataverse-specific search - DONE</h3>
 
@@ -216,15 +238,21 @@ faceted
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/AdvSearchPage.xhtml">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/AdvSearchPage.xhtml</a></p>
 
+<h4><a name="index2h4"></a>FIXME: Collection search should find studies from other dataverses</h4>
+
+<p>A search for "furman" at <a href="http://dvn-4.hmdc.harvard.edu/dvn/dv/gpd">http://dvn-4.hmdc.harvard.edu/dvn/dv/gpd</a> (no faceting code yet) finds hdl:1902.2/3468 but the same search at <a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/gpd">http://dvn-3.hmdc.harvard.edu/dvn/dv/gpd</a> does not because currently the query limits the search to the current dataverse with a facet (<code>+$facets:dvName?gpd</code>) and the study in question belongs to a different dataverse (different dvName).</p>
+
 <h3><a name="index10h3"></a>Subsearch ("within these results") after a search from a dataverse page</h3>
 
 <p>This will probably be solved when the main "within these results" area is refactored.</p>
 
-<h2><a name="index6h2"></a>All studies listing - PARTIAL</h2>
+<h4><a name="index3h4"></a>FIXME: Text above subsearch should show all previous and current terms</h4>
+
+<h2><a name="index6h2"></a>All studies listing - DEFERRED</h2>
 
 <p>From the home page you can click "view more" to see a list of all studies at <a href="http://dvn-3.hmdc.harvard.edu/dvn/faces/StudyListingPage.xhtml?mode=100">http://dvn-3.hmdc.harvard.edu/dvn/faces/StudyListingPage.xhtml?mode=100</a> and we probably want to have facets there.</p>
 
-<p>Code to do a MatchAllDocsQuery has been added but commented out and is not well tested and may need a re-write.</p>
+<p>Code to do a MatchAllDocsQuery has been added but commented out and is not well tested and may need a re-write. For now we have decide to defer adding facets to the all studies listing page.</p>
 
 <h2><a name="index7h2"></a>Dynamic collections</h2>
 
@@ -257,7 +285,7 @@ faceted
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Tue Apr 23 10:44:17 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Tue Apr 23 16:30:52 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
 </div>
 
