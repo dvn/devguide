@@ -258,6 +258,65 @@ murphy:dvn pdurbin$ git push origin 2656-lucene
 murphy:dvn pdurbin$ 
 </code></pre>
 
+<p>When we are ready to merge the feature branch back into the develop branch, we can do so.</p>
+
+<p>Here's an example of merging the 2656-lucene branch back into develop:</p>
+
+<pre><code>murphy:dvn pdurbin$ git checkout 2656-lucene
+Switched to branch '2656-lucene'
+murphy:dvn pdurbin$ git pull
+Already up-to-date.
+murphy:dvn pdurbin$ git checkout develop
+Switched to branch 'develop'
+murphy:dvn pdurbin$ git pull
+Already up-to-date.
+murphy:dvn pdurbin$ git merge 2656-lucene
+Removing lib/dvn-lib-EJB/lucene-core-3.0.0.jar
+Merge made by the 'recursive' strategy.
+ lib/dvn-lib-EJB/lucene-core-3.0.0.jar                                     |  Bin 1021623 -&gt; 0 bytes
+ lib/dvn-lib-EJB/lucene-core-3.5.0.jar                                     |  Bin 0 -&gt; 1466301 bytes
+ lib/dvn-lib-EJB/lucene-facet-3.5.0.jar                                    |  Bin 0 -&gt; 293582 bytes
+ src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/DvnQuery.java          |  160 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/IndexServiceBean.java  |   56 ++++++++++++++++++++
+ src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/IndexServiceLocal.java |   16 +++++-
+ src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/Indexer.java           |  432 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--
+ src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/ResultsWithFacets.java |   71 +++++++++++++++++++++++++
+ src/DVN-web/src/SearchFieldBundle.properties                              |    4 +-
+ src/DVN-web/src/edu/harvard/iq/dvn/core/web/AdvSearchPage.java            |   86 +++++++++++++++++++++++++++++++
+ src/DVN-web/src/edu/harvard/iq/dvn/core/web/BasicSearchFragment.java      |  102 +++++++++++++++++++++++++++++++++++-
+ src/DVN-web/src/edu/harvard/iq/dvn/core/web/StudyListing.java             |   11 ++++
+ src/DVN-web/src/edu/harvard/iq/dvn/core/web/StudyListingPage.java         |  428 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ src/DVN-web/src/edu/harvard/iq/dvn/core/web/study/FacetResultUI.java      |   42 +++++++++++++++
+ src/DVN-web/src/edu/harvard/iq/dvn/core/web/study/FacetUI.java            |   62 ++++++++++++++++++++++
+ src/DVN-web/web/AdvSearchPage.xhtml                                       |    3 +-
+ src/DVN-web/web/BasicSearchFragment.xhtml                                 |    9 ++--
+ src/DVN-web/web/StudyListingPage.xhtml                                    |   43 +++++++++++-----
+ 18 files changed, 1500 insertions(+), 25 deletions(-)
+ delete mode 100644 lib/dvn-lib-EJB/lucene-core-3.0.0.jar
+ create mode 100644 lib/dvn-lib-EJB/lucene-core-3.5.0.jar
+ create mode 100644 lib/dvn-lib-EJB/lucene-facet-3.5.0.jar
+ create mode 100644 src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/DvnQuery.java
+ create mode 100644 src/DVN-EJB/src/java/edu/harvard/iq/dvn/core/index/ResultsWithFacets.java
+ create mode 100644 src/DVN-web/src/edu/harvard/iq/dvn/core/web/study/FacetResultUI.java
+ create mode 100644 src/DVN-web/src/edu/harvard/iq/dvn/core/web/study/FacetUI.java
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git status
+# On branch develop
+# Your branch is ahead of 'origin/develop' by 68 commits.
+#
+nothing to commit (working directory clean)
+murphy:dvn pdurbin$ 
+murphy:dvn pdurbin$ git push
+Counting objects: 51, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (19/19), 1.41 KiB, done.
+Total 19 (delta 7), reused 0 (delta 0)
+To git@github.com:IQSS/dvn.git
+   b7fae01..2b88b68  develop -&gt; develop
+murphy:dvn pdurbin$ 
+</code></pre>
+
 <h2><a name="index4h2"></a>Switching to the master branch to merge commits from the develop branch</h2>
 
 <p>We should really only need to switch from the develop branch to the master branch as we prepare for a release.</p>
@@ -301,7 +360,7 @@ Links:
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Fri Apr  5 09:58:22 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Mon Apr 29 13:43:39 2013</span>
 <!-- Created <span class="date">Thu Apr  4 10:18:16 2013</span> -->
 </div>
 
