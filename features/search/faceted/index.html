@@ -100,59 +100,65 @@ faceted
 
 <div class="toc">
 	<ol>
-		<li class="L2"><a href="#index1h2">Home page - DONE</a>
+		<li class="L2"><a href="#index1h2">Network level - PARTIAL</a>
 		<ol>
-			<li class="L3"><a href="#index1h3">Suggested search - DONE</a>
+			<li class="L3"><a href="#index1h3">Basic search  - DONE</a>
 			</li>
-			<li class="L3"><a href="#index2h3">Basic search  - DONE</a>
+			<li class="L3"><a href="#index2h3">Suggested search - DONE</a>
 			</li>
-		</ol>
-		</li>
-		<li class="L2"><a href="#index2h2">Advanced search page - PARTIAL</a>
-		<ol>
-			<li class="L3"><a href="#index3h3">Basic search from the advanced search page - DONE</a>
-			</li>
-			<li class="L3"><a href="#index4h3">Study Cataloging Information - PARTIAL</a>
+			<li class="L3"><a href="#index3h3">Advanced search page - PARTIAL</a>
 			<ol>
-				<li class="L4"><a href="#index1h4">FIXME: Some advanced searches failing on dvn-3 (i.e. author)</a>
+				<li class="L4"><a href="#index1h4">Study Cataloging Information - PARTIAL</a>
+				<ol>
+					<li class="L5"><a href="#index1h5">FIXME: Some advanced searches failing on dvn-3 (i.e. author), see Redmine 2931</a>
+					</li>
+				</ol>
+				</li>
+				<li class="L4"><a href="#index2h4">Tabular Data Variable Information (lower priority) - PARTIAL</a>
+				</li>
+				<li class="L4"><a href="#index3h4">FITS File (metadata) Information (lower priority)</a>
 				</li>
 			</ol>
 			</li>
-			<li class="L3"><a href="#index5h3">Tabular Data Variable Information (lower priority) - PARTIAL</a>
+			<li class="L3"><a href="#index4h3">New search from study listing page - DONE</a>
 			</li>
-			<li class="L3"><a href="#index6h3">FITS File (metadata) Information (lower priority)</a>
+			<li class="L3"><a href="#index5h3">Subsearch ("within these results" after a search)</a>
+			<ol>
+				<li class="L4">
+				<ol>
+					<li class="L5"><a href="#index2h5">FIXME: Text above subsearch should show all previous and current terms</a>
+					</li>
+				</ol>
+				</li>
+			</ol>
 			</li>
 		</ol>
 		</li>
-		<li class="L2"><a href="#index3h2">New search from study listing page - DONE</a>
-		</li>
-		<li class="L2"><a href="#index4h2">Subsearch ("within these results" after a search)</a>
-		</li>
-		<li class="L2"><a href="#index5h2">Dataverse pages - PARTIAL</a>
+		<li class="L2"><a href="#index2h2">Dataverse level - PARTIAL</a>
 		<ol>
-			<li class="L3"><a href="#index7h3">Dataverse landing page? - DEFERRED</a>
+			<li class="L3"><a href="#index6h3">Landing page for each dataverse - DEFERRED</a>
 			</li>
-			<li class="L3"><a href="#index8h3">New dataverse-specific search - DONE</a>
+			<li class="L3"><a href="#index7h3">Basic search from dataverse level - PARTIAL</a>
+			</li>
+			<li class="L3"><a href="#index8h3">Advanced search from dataverse level - PARTIAL</a>
+			<ol>
+				<li class="L4"><a href="#index4h4">FIXME: Advanced search from a dataverse will collections does not find studies from other dataverses</a>
+				</li>
+			</ol>
 			</li>
 			<li class="L3"><a href="#index9h3">Collection search</a>
-			<ol>
-				<li class="L4"><a href="#index2h4">FIXME: Collection search should find studies from other dataverses</a>
-				</li>
-			</ol>
 			</li>
 			<li class="L3"><a href="#index10h3">Subsearch ("within these results") after a search from a dataverse page</a>
-			<ol>
-				<li class="L4"><a href="#index3h4">FIXME: Text above subsearch should show all previous and current terms</a>
-				</li>
-			</ol>
+			</li>
+			<li class="L3"><a href="#index11h3">All studies listing - DEFERRED</a>
 			</li>
 		</ol>
 		</li>
-		<li class="L2"><a href="#index6h2">All studies listing - DEFERRED</a>
-		</li>
-		<li class="L2"><a href="#index7h2">Dynamic collections</a>
-		</li>
-		<li class="L2"><a href="#index8h2">OAI Harvesting Sets - DONE</a>
+		<li class="L2"><a href="#index3h2">Non user-facing search - DONE (nothing to do)</a>
+		<ol>
+			<li class="L3"><a href="#index12h3">OAI Harvesting Sets - DONE (nothing to do)</a>
+			</li>
+		</ol>
 		</li>
 	</ol>
 </div>
@@ -160,27 +166,21 @@ faceted
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/">http://dvn-3.hmdc.harvard.edu/dvn/</a> is the place to test faceted search because war files built from the latest code at <a href="https://github.com/iqss/dvn/tree/2656-lucene">https://github.com/iqss/dvn/tree/2656-lucene</a> are deployed there periodically.</p>
 
-<h2><a name="index1h2"></a>Home page - DONE</h2>
+<h2><a name="index1h2"></a>Network level - PARTIAL</h2>
 
-<p><a href="http://dvn-3.hmdc.harvard.edu/dvn/">http://dvn-3.hmdc.harvard.edu/dvn/</a></p>
+<h3><a name="index1h3"></a>Basic search  - DONE</h3>
 
-<h3><a name="index1h3"></a>Suggested search - DONE</h3>
+<p>User enters a query from the home page: <a href="http://dvn-3.hmdc.harvard.edu/dvn/">http://dvn-3.hmdc.harvard.edu/dvn/</a></p>
 
-<p>User clicks one of the suggested terms on the home page.</p>
+<h3><a name="index2h3"></a>Suggested search - DONE</h3>
 
-<h3><a name="index2h3"></a>Basic search  - DONE</h3>
+<p>User clicks one of the suggested terms on the home page:  <a href="http://dvn-3.hmdc.harvard.edu/dvn/">http://dvn-3.hmdc.harvard.edu/dvn/</a></p>
 
-<p>User enters a query from the home page.</p>
-
-<h2><a name="index2h2"></a>Advanced search page - PARTIAL</h2>
+<h3><a name="index3h3"></a>Advanced search page - PARTIAL</h3>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml">http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml</a></p>
 
-<h3><a name="index3h3"></a>Basic search from the advanced search page - DONE</h3>
-
-<p>This works exactly as basic search from above. The same code is included in the page.</p>
-
-<h3><a name="index4h3"></a>Study Cataloging Information - PARTIAL</h3>
+<h4><a name="index1h4"></a>Study Cataloging Information - PARTIAL</h4>
 
 <p>This is similar to basic search but you can add "contains" or "does not contain" for various fields at once:</p>
 
@@ -192,41 +192,49 @@ faceted
 </ul>
 
 
-<h4><a name="index1h4"></a>FIXME: Some advanced searches failing on dvn-3 (i.e. author)</h4>
+<h5><a name="index1h5"></a>FIXME: Some advanced searches failing on dvn-3 (i.e. author), see Redmine 2931</h5>
 
-<p>No results for searches on author at <a href="http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml">http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml</a> (seeing author rather than authorName and keyword rather than keywordValue)</p>
+<p>No results for searches on author at <a href="http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml">http://dvn-3.hmdc.harvard.edu/dvn/faces/AdvSearchPage.xhtml</a> (seeing author rather than authorName and keyword rather than keywordValue). We are also seeing this in production at <a href="http://thedata.harvard.edu/dvn/dv/mra">http://thedata.harvard.edu/dvn/dv/mra</a> as reported at <a href="https://redmine.hmdc.harvard.edu/issues/2931">https://redmine.hmdc.harvard.edu/issues/2931</a> where a fix (a hack for now) is proposed.</p>
 
 <p>Combinations such as <code>+(+title:data +productionDate:1997)</code> seem to work fine.</p>
 
-<h3><a name="index5h3"></a>Tabular Data Variable Information (lower priority) - PARTIAL</h3>
+<h4><a name="index2h4"></a>Tabular Data Variable Information (lower priority) - PARTIAL</h4>
 
 <p>This search looks into the variables of uploaded files (tab-separated, Stata, SPSS, etc.).</p>
 
 <p>If you search for "data" under "Title" and "Variable Information" you should see facets.</p>
 
-<h3><a name="index6h3"></a>FITS File (metadata) Information (lower priority)</h3>
+<h4><a name="index3h4"></a>FITS File (metadata) Information (lower priority)</h4>
 
-<h2><a name="index3h2"></a>New search from study listing page - DONE</h2>
+<h3><a name="index4h3"></a>New search from study listing page - DONE</h3>
 
 <p>A fast way to get to the study listing page is by clicking a suggested term from the homepage: <a href="http://dvn-3.hmdc.harvard.edu/dvn/">http://dvn-3.hmdc.harvard.edu/dvn/</a></p>
 
-<h2><a name="index4h2"></a>Subsearch ("within these results" after a search)</h2>
+<h3><a name="index5h3"></a>Subsearch ("within these results" after a search)</h3>
 
 <p>You are given the option to check this box after search from the home page or the advanced search page.</p>
 
-<h2><a name="index5h2"></a>Dataverse pages - PARTIAL</h2>
+<h5><a name="index2h5"></a>FIXME: Text above subsearch should show all previous and current terms</h5>
 
-<h3><a name="index7h3"></a>Dataverse landing page? - DEFERRED</h3>
+<h2><a name="index2h2"></a>Dataverse level - PARTIAL</h2>
+
+<h3><a name="index6h3"></a>Landing page for each dataverse - DEFERRED</h3>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, the number of studies shown corresponds to that dataverse. That is, a search is performed.  Should we show faceted search results here? This is similar in concept to showing faceted results on the "all studies listing" page.</p>
 
 <p>We decide to defer on adding facets to dataverse landing pages, at least for now.</p>
 
-<h3><a name="index8h3"></a>New dataverse-specific search - DONE</h3>
+<h3><a name="index7h3"></a>Basic search from dataverse level - PARTIAL</h3>
 
-<p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked).</p>
+<p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked) unless the dataverse has collections that contain studies from other dataverses.</p>
 
-<p>As of <a href="https://github.com/IQSS/dvn/commit/5debbd9">https://github.com/IQSS/dvn/commit/5debbd9</a> dataverse-specific search is based on facets (and seems to be working) which means that <code>+$facets:dvName?Murray Research Archive Original Collection</code> (for example) is appended to the normal query.</p>
+<p>In <a href="https://github.com/IQSS/dvn/commit/5debbd9">https://github.com/IQSS/dvn/commit/5debbd9</a> dataverse-specific search was change to be based on facets which means that <code>+$facets:dvName?Murray Research Archive Original Collection</code> (for example) is appended to the normal query but this means that searches wouldn't find studies in collections from other dataverses. To resolve this for now, as of <a href="https://github.com/IQSS/dvn/commit/bf343fe">https://github.com/IQSS/dvn/commit/bf343fe</a> if a dataverse has a collection, we use the older, non-faceted search.</p>
+
+<h3><a name="index8h3"></a>Advanced search from dataverse level - PARTIAL</h3>
+
+<h4><a name="index4h4"></a>FIXME: Advanced search from a dataverse will collections does not find studies from other dataverses</h4>
+
+<p>For now, we'll probably revert to the old non-faceted search if a dataverse has collections, as we did with basic search.</p>
 
 <h3><a name="index9h3"></a>Collection search</h3>
 
@@ -238,27 +246,23 @@ faceted
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/AdvSearchPage.xhtml">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/AdvSearchPage.xhtml</a></p>
 
-<h4><a name="index2h4"></a>FIXME: Collection search should find studies from other dataverses</h4>
-
-<p>A search for "furman" at <a href="http://dvn-4.hmdc.harvard.edu/dvn/dv/gpd">http://dvn-4.hmdc.harvard.edu/dvn/dv/gpd</a> (no faceting code yet) finds hdl:1902.2/3468 but the same search at <a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/gpd">http://dvn-3.hmdc.harvard.edu/dvn/dv/gpd</a> does not because currently the query limits the search to the current dataverse with a facet (<code>+$facets:dvName?gpd</code>) and the study in question belongs to a different dataverse (different dvName).</p>
+<p>These code paths have not been examined yet.</p>
 
 <h3><a name="index10h3"></a>Subsearch ("within these results") after a search from a dataverse page</h3>
 
 <p>This will probably be solved when the main "within these results" area is refactored.</p>
 
-<h4><a name="index3h4"></a>FIXME: Text above subsearch should show all previous and current terms</h4>
-
-<h2><a name="index6h2"></a>All studies listing - DEFERRED</h2>
+<h3><a name="index11h3"></a>All studies listing - DEFERRED</h3>
 
 <p>From the home page you can click "view more" to see a list of all studies at <a href="http://dvn-3.hmdc.harvard.edu/dvn/faces/StudyListingPage.xhtml?mode=100">http://dvn-3.hmdc.harvard.edu/dvn/faces/StudyListingPage.xhtml?mode=100</a> and we probably want to have facets there.</p>
 
 <p>Code to do a MatchAllDocsQuery has been added but commented out and is not well tested and may need a re-write. For now we have decide to defer adding facets to the all studies listing page.</p>
 
-<h2><a name="index7h2"></a>Dynamic collections</h2>
+<h2><a name="index3h2"></a>Non user-facing search - DONE (nothing to do)</h2>
 
-<p>Dynamic collections are configured within a dataverse: <a href="http://guides.thedata.org/book/manage-collections">http://guides.thedata.org/book/manage-collections</a></p>
+<p>This simply a list of other places Lucene is used in the application but where it doesn't make sense to expose faceted results to the users. Functionality should still be tested, however, to make no regressions have been introduced.</p>
 
-<h2><a name="index8h2"></a>OAI Harvesting Sets - DONE</h2>
+<h3><a name="index12h3"></a>OAI Harvesting Sets - DONE (nothing to do)</h3>
 
 <p>OAI harvesting is configured at the DVN level: <a href="http://guides.thedata.org/book/manage-oai-harvesting-sets">http://guides.thedata.org/book/manage-oai-harvesting-sets</a></p>
 
@@ -285,7 +289,7 @@ faceted
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Tue Apr 23 16:30:52 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Wed May  1 16:40:26 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
 </div>
 
