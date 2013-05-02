@@ -141,22 +141,16 @@ faceted
 			<li class="L3"><a href="#index7h3">Basic search from dataverse level - PARTIAL</a>
 			</li>
 			<li class="L3"><a href="#index8h3">Advanced search from dataverse level - PARTIAL</a>
-			<ol>
-				<li class="L4"><a href="#index4h4">FIXME: Advanced search from a dataverse will collections does not find studies from other dataverses</a>
-				</li>
-			</ol>
 			</li>
-			<li class="L3"><a href="#index9h3">Collection search</a>
+			<li class="L3"><a href="#index9h3">Subsearch ("within these results") after a search from a dataverse page</a>
 			</li>
-			<li class="L3"><a href="#index10h3">Subsearch ("within these results") after a search from a dataverse page</a>
-			</li>
-			<li class="L3"><a href="#index11h3">All studies listing - DEFERRED</a>
+			<li class="L3"><a href="#index10h3">All studies listing - DEFERRED</a>
 			</li>
 		</ol>
 		</li>
 		<li class="L2"><a href="#index3h2">Non user-facing search - DONE (nothing to do)</a>
 		<ol>
-			<li class="L3"><a href="#index12h3">OAI Harvesting Sets - DONE (nothing to do)</a>
+			<li class="L3"><a href="#index11h3">OAI Harvesting Sets - DONE (nothing to do)</a>
 			</li>
 		</ol>
 		</li>
@@ -230,29 +224,23 @@ faceted
 
 <p>In <a href="https://github.com/IQSS/dvn/commit/5debbd9">https://github.com/IQSS/dvn/commit/5debbd9</a> dataverse-specific search was change to be based on facets which means that <code>+$facets:dvName?Murray Research Archive Original Collection</code> (for example) is appended to the normal query but this means that searches wouldn't find studies in collections from other dataverses. To resolve this for now, as of <a href="https://github.com/IQSS/dvn/commit/bf343fe">https://github.com/IQSS/dvn/commit/bf343fe</a> if a dataverse has a collection, we use the older, non-faceted search.</p>
 
-<h3><a name="index8h3"></a>Advanced search from dataverse level - PARTIAL</h3>
-
-<h4><a name="index4h4"></a>FIXME: Advanced search from a dataverse will collections does not find studies from other dataverses</h4>
-
-<p>For now, we'll probably revert to the old non-faceted search if a dataverse has collections, as we did with basic search.</p>
-
-<h3><a name="index9h3"></a>Collection search</h3>
-
-<p>For example, this is the "Heath" collection from MRA (by clicking "Health" on the MRA landing page)</p>
+<p>To perform a basic search within a collection, you can click the name of the collection from the landing page of the dataverse. For example, this is the "Heath" collection from MRA (by clicking "Health" on the MRA landing page)</p>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/StudyListingPage.xhtml?mode=1&amp;collectionId=6">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/StudyListingPage.xhtml?mode=1&amp;collectionId=6</a></p>
 
-<p>You can also search the MRA "Health" collection via advanced search with "Collections Scope":</p>
+<h3><a name="index8h3"></a>Advanced search from dataverse level - PARTIAL</h3>
+
+<p>As with basic search, for now we only show faceted results from the dataverse level when the dataverse doesn't have any collections.</p>
+
+<p>Please note that from the advanced search page at the dataverse level, you can select particular collections with the radio button under "Collection Scope". For example, you can select the "Health" collection from MRA here:</p>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/AdvSearchPage.xhtml">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/AdvSearchPage.xhtml</a></p>
 
-<p>These code paths have not been examined yet.</p>
-
-<h3><a name="index10h3"></a>Subsearch ("within these results") after a search from a dataverse page</h3>
+<h3><a name="index9h3"></a>Subsearch ("within these results") after a search from a dataverse page</h3>
 
 <p>This will probably be solved when the main "within these results" area is refactored.</p>
 
-<h3><a name="index11h3"></a>All studies listing - DEFERRED</h3>
+<h3><a name="index10h3"></a>All studies listing - DEFERRED</h3>
 
 <p>From the home page you can click "view more" to see a list of all studies at <a href="http://dvn-3.hmdc.harvard.edu/dvn/faces/StudyListingPage.xhtml?mode=100">http://dvn-3.hmdc.harvard.edu/dvn/faces/StudyListingPage.xhtml?mode=100</a> and we probably want to have facets there.</p>
 
@@ -262,7 +250,7 @@ faceted
 
 <p>This simply a list of other places Lucene is used in the application but where it doesn't make sense to expose faceted results to the users. Functionality should still be tested, however, to make no regressions have been introduced.</p>
 
-<h3><a name="index12h3"></a>OAI Harvesting Sets - DONE (nothing to do)</h3>
+<h3><a name="index11h3"></a>OAI Harvesting Sets - DONE (nothing to do)</h3>
 
 <p>OAI harvesting is configured at the DVN level: <a href="http://guides.thedata.org/book/manage-oai-harvesting-sets">http://guides.thedata.org/book/manage-oai-harvesting-sets</a></p>
 
@@ -289,7 +277,7 @@ faceted
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Wed May  1 16:40:26 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Thu May  2 10:33:54 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
 </div>
 
