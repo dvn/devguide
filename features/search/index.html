@@ -94,6 +94,17 @@ search
 <div id="content">
 <p>DVN search is powered by Lucene: <a href="https://lucene.apache.org/core/">https://lucene.apache.org/core/</a></p>
 
+<p><a href="https://redmine.hmdc.harvard.edu/issues/2656">https://redmine.hmdc.harvard.edu/issues/2656</a> upgrades Lucene 3.0 to 3.5 for the <a href="./faceted/">faceted</a> search feature.</p>
+
+<p>"Generally, the query parser syntax may change from release to release" -- <a href="http://lucene.apache.org/core/old_versioned_docs/versions/3_5_0/queryparsersyntax.html">http://lucene.apache.org/core/old_versioned_docs/versions/3_5_0/queryparsersyntax.html</a></p>
+
+<p>Lucene 3.6 and higher introduces some backward-incompatible changes that will need to be addressed before we can upgrade:</p>
+
+<ul>
+<li>"LUCENE-3679: The expert IndexReader.getFieldNames(FieldOption) API has been removed and replaced with the experimental getFieldInfos API.  All IndexReader subclasses must implement getFieldInfos." -- <a href="http://lucene.apache.org/core/3_6_0/changes/Changes.html">http://lucene.apache.org/core/3_6_0/changes/Changes.html</a></li>
+</ul>
+
+
 <p>Subpages:</p>
 
 <div class="map">
@@ -137,7 +148,7 @@ search
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Wed Apr 10 14:22:10 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Wed May  8 08:57:51 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:52:03 2013</span> -->
 </div>
 
