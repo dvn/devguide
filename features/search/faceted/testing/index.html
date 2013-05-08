@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+<!-- <link rel="alternate" type="application/atom+xml" href="http://git.example.com/?p=wiki.git;a=atom" title="wiki.example.com commits"/> -->
+<title>
+
+DVN Developer's Guide /
+
+features /
+
+search /
+
+faceted /
+
+testing
+</title>
+
+<link rel="stylesheet" href="../../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../../">DVN Developer's Guide</a> / 
+
+<a href="../../../">features</a> / 
+
+<a href="../../">search</a> / 
+
+<a href="../">faceted</a> / 
+
+</span>
+<span class="title">
+testing
+
+</span>
+</span>
+
+</div>
+
+<!--
+
+<div class="actions">
+<ul>
+
+
+
+<li><a href="FIXME">History</a></li>
+
+
+
+
+
+
+
+</ul>
+</div>
+
+-->
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><a href="../../../../build/">Build</a></li>
+<li><a href="../../../../deploy/">Deploy</a></li>
+<li><a href="../../../../commit/">Commit</a></li>
+<li><a href="../../../../push/">Push</a></li>
+<li><a href="../../../../branches/">Branches</a></li>
+<li><a href="../../../">Features</a></li>
+<li><a href="../../../../tips/">Tips</a></li>
+<li><a href="../../../../errors/">Errors</a></li>
+<li><a href="../../../../sitemap/">Sitemap</a></li>
+</ul>
+
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+<h2>Testing search from dataverse context, with an emphasis on collections</h2>
+
+<p>A root collection can be:</p>
+
+<ul>
+<li>default</li>
+<li>static: studies added, maybe from other dataverses</li>
+<li>dynamic: studies added, maybe from other dataverses</li>
+</ul>
+
+
+<p>The "local" column is for the number of studies owned by that dataverse.</p>
+
+<p>The numbers under the "static" and "dynamic" columns represent the number of this type of child collection.</p>
+
+<p>The "titleSearch" column will be used to record the results from testing various values under "Title" using advanced search.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>root</th>
+            <th>local</th>
+            <th>static</th>
+            <th>dynamic</th>
+            <th>titleSearch</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>dv1</td>
+            <td>default</td>
+            <td>2</td>
+            <td>1</td>
+            <td>0</td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td>dv2</td>
+            <td>default</td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td>dv3</td>
+            <td>static</td>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td>dv4</td>
+            <td>default</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1</td>
+            <td>?</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p><a href="./status.tsv">Direct data download</a></p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last <a href="FIXME">updated</a> <span class="date">Wed May  8 15:36:21 2013</span>
+<!-- Created <span class="date">Wed May  8 14:13:30 2013</span> -->
+</div>
+
+</div>
+
+
+<!-- from DVN Developer's Guide -->
+</div>
+
+</div>
+
+<hr>
+
+<div>
+DVN Dev Team
+</div>
+
+</body>
+</html>
