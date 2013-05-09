@@ -1,5 +1,6 @@
-name	root	local	static	dynamic	titleSearch
-dv1	default	2	1	0	?
-dv2	default	2	0	0	?
-dv3	static	0	1	0	?
-dv4	default	0	0	1	?
+name	root	local	static	dynamic	linked	titleSearch
+dv1	default	2	1	0	0	?
+dv2	default	2	0	0	0	?
+dv3	static	0	1	0	0	?
+dv4	default	0	0	1	0	?
+dv5	default	0	0	0	1	?
