@@ -115,8 +115,16 @@ faceted
 				</ol>
 				</li>
 				<li class="L4"><a href="#index2h4">Tabular Data Variable Information (lower priority) - PARTIAL</a>
+				<ol>
+					<li class="L5"><a href="#index2h5">FIXME: Variable search is broken as of https://github.com/IQSS/dvn/commit/0507f48</a>
+					</li>
+				</ol>
 				</li>
 				<li class="L4"><a href="#index3h4">FITS File (metadata) Information (lower priority)</a>
+				<ol>
+					<li class="L5"><a href="#index3h5">FIXME: Unknown if FITS search works as of https://github.com/IQSS/dvn/commit/0507f48</a>
+					</li>
+				</ol>
 				</li>
 			</ol>
 			</li>
@@ -126,7 +134,7 @@ faceted
 			<ol>
 				<li class="L4">
 				<ol>
-					<li class="L5"><a href="#index2h5">FIXME: Text above subsearch should show all previous and current terms</a>
+					<li class="L5"><a href="#index4h5">FIXME: Text above subsearch should show all previous and current terms</a>
 					</li>
 				</ol>
 				</li>
@@ -139,6 +147,10 @@ faceted
 			<li class="L3"><a href="#index6h3">Landing page for each dataverse - DEFERRED</a>
 			</li>
 			<li class="L3"><a href="#index7h3">Basic search from dataverse level - PARTIAL</a>
+			<ol>
+				<li class="L4"><a href="#index4h4">FIXME:</a>
+				</li>
+			</ol>
 			</li>
 			<li class="L3"><a href="#index8h3">Advanced search from dataverse level - PARTIAL</a>
 			</li>
@@ -198,9 +210,13 @@ faceted
 
 <p>If you search for "data" under "Title" and "Variable Information" you should see facets.</p>
 
+<h5><a name="index2h5"></a>FIXME: Variable search is broken as of <a href="https://github.com/IQSS/dvn/commit/0507f48">https://github.com/IQSS/dvn/commit/0507f48</a></h5>
+
 <h4><a name="index3h4"></a>FITS File (metadata) Information (lower priority)</h4>
 
 <p>Please note that you only see the option to search FITS files if any FITS files have been uploaded.</p>
+
+<h5><a name="index3h5"></a>FIXME: Unknown if FITS search works as of <a href="https://github.com/IQSS/dvn/commit/0507f48">https://github.com/IQSS/dvn/commit/0507f48</a></h5>
 
 <h3><a name="index4h3"></a>New search from study listing page - DONE</h3>
 
@@ -210,7 +226,7 @@ faceted
 
 <p>You are given the option to check this box after search from the home page or the advanced search page.</p>
 
-<h5><a name="index2h5"></a>FIXME: Text above subsearch should show all previous and current terms</h5>
+<h5><a name="index4h5"></a>FIXME: Text above subsearch should show all previous and current terms</h5>
 
 <h2><a name="index2h2"></a>Dataverse level - PARTIAL</h2>
 
@@ -224,11 +240,29 @@ faceted
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked) unless the dataverse has collections that contain studies from other dataverses.</p>
 
-<p>In <a href="https://github.com/IQSS/dvn/commit/5debbd9">https://github.com/IQSS/dvn/commit/5debbd9</a> dataverse-specific search was change to be based on facets which means that <code>+$facets:dvName?Murray Research Archive Original Collection</code> (for example) is appended to the normal query but this means that searches wouldn't find studies in collections from other dataverses. To resolve this for now, as of <a href="https://github.com/IQSS/dvn/commit/bf343fe">https://github.com/IQSS/dvn/commit/bf343fe</a> if a dataverse has a collection, we use the older, non-faceted search.</p>
-
 <p>To perform a basic search within a collection, you can click the name of the collection from the landing page of the dataverse. For example, this is the "Heath" collection from MRA (by clicking "Health" on the MRA landing page)</p>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/StudyListingPage.xhtml?mode=1&amp;collectionId=6">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/StudyListingPage.xhtml?mode=1&amp;collectionId=6</a></p>
+
+<h4><a name="index4h4"></a>FIXME:</h4>
+
+<p>As of <a href="https://github.com/IQSS/dvn/commit/0507f48">https://github.com/IQSS/dvn/commit/0507f48</a> a search for "data" at <a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> yields...</p>
+
+<ul>
+<li>438 studies before search</li>
+<li>442 studies nothing checked</li>
+<li>432 studies if "within this collection" is checked</li>
+</ul>
+
+
+<p>... whereas at <a href="http://thedata.harvard.edu/dvn/dv/mra">http://thedata.harvard.edu/dvn/dv/mra</a> (3.4) the numbers are:</p>
+
+<ul>
+<li>437 studies before search</li>
+<li>431 studies nothing checked</li>
+<li>431 studies if "within this collection" is checked</li>
+</ul>
+
 
 <h3><a name="index8h3"></a>Advanced search from dataverse level - PARTIAL</h3>
 
@@ -287,7 +321,7 @@ Links:
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Thu May  2 10:36:31 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Thu May  9 16:31:56 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
 </div>
 
