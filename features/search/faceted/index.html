@@ -136,11 +136,21 @@ faceted
 			</li>
 			<li class="L3"><a href="#index7h3">Basic search from dataverse level - PARTIAL</a>
 			<ol>
-				<li class="L4"><a href="#index5h4">FIXME: investigate number of hits at dataverse level</a>
+				<li class="L4"><a href="#index5h4">Basic search for an entire dataverse - DONE</a>
+				</li>
+				<li class="L4"><a href="#index6h4">Basic search of a selected collection - TODO</a>
+				</li>
+				<li class="L4"><a href="#index7h4">FIXME: investigate number of hits at dataverse level</a>
 				</li>
 			</ol>
 			</li>
 			<li class="L3"><a href="#index8h3">Advanced search from dataverse level - PARTIAL</a>
+			<ol>
+				<li class="L4"><a href="#index8h4">Search All Collections - DONE</a>
+				</li>
+				<li class="L4"><a href="#index9h4">Search Only the Selected Collections - TODO</a>
+				</li>
+			</ol>
 			</li>
 			<li class="L3"><a href="#index9h3">Subsearch ("within these results") after a search from a dataverse page - DEFERRED</a>
 			</li>
@@ -222,13 +232,17 @@ faceted
 
 <h3><a name="index7h3"></a>Basic search from dataverse level - PARTIAL</h3>
 
+<h4><a name="index5h4"></a>Basic search for an entire dataverse - DONE</h4>
+
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> (for example).  From the landing page for a dataverse, searches are automatically narrowed to be within that dataverse (seemingly whether or not "within this collection" is checked) unless the dataverse has collections that contain studies from other dataverses.</p>
+
+<h4><a name="index6h4"></a>Basic search of a selected collection - TODO</h4>
 
 <p>To perform a basic search within a collection, you can click the name of the collection from the landing page of the dataverse. For example, this is the "Heath" collection from MRA (by clicking "Health" on the MRA landing page)</p>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/StudyListingPage.xhtml?mode=1&amp;collectionId=6">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/StudyListingPage.xhtml?mode=1&amp;collectionId=6</a></p>
 
-<h4><a name="index5h4"></a>FIXME: investigate number of hits at dataverse level</h4>
+<h4><a name="index7h4"></a>FIXME: investigate number of hits at dataverse level</h4>
 
 <p>As of <a href="https://github.com/IQSS/dvn/commit/0507f48">https://github.com/IQSS/dvn/commit/0507f48</a> a search for "data" at <a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra</a> yields...</p>
 
@@ -250,9 +264,11 @@ faceted
 
 <h3><a name="index8h3"></a>Advanced search from dataverse level - PARTIAL</h3>
 
-<p>As with basic search, for now we only show faceted results from the dataverse level when the dataverse doesn't have any collections.</p>
+<h4><a name="index8h4"></a>Search All Collections - DONE</h4>
 
-<p>Please note that from the advanced search page at the dataverse level, you can select particular collections with the radio button under "Collection Scope". For example, you can select the "Health" collection from MRA here:</p>
+<h4><a name="index9h4"></a>Search Only the Selected Collections - TODO</h4>
+
+<p>From the advanced search page at the dataverse level, you can select particular collections with the radio button under "Collection Scope". For example, you can select the "Health" collection from MRA here:</p>
 
 <p><a href="http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/AdvSearchPage.xhtml">http://dvn-3.hmdc.harvard.edu/dvn/dv/mra/faces/AdvSearchPage.xhtml</a></p>
 
@@ -305,7 +321,7 @@ Links:
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Tue May 14 14:08:34 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Wed May 15 15:27:17 2013</span>
 <!-- Created <span class="date">Mon Apr  8 14:20:01 2013</span> -->
 </div>
 

@@ -1,6 +1,8 @@
 	Network level	Dataverse level
 New basic search	facets	facets
+Basic search "within this collection"	N/A	no facets
 Search "within these results"	no facets	no facets
 Advanced search: Study Cataloging Information	facets	facets but see authorName bug: https://redmine.hmdc.harvard.edu/issues/2931
 Advanced search: Tabular Data Variable Information	no facets	no facets
 Advanced search: FITS File Information	no facets	no results per https://redmine.hmdc.harvard.edu/issues/2913
+Advanced search: Collections Scope	N/A	no facets
