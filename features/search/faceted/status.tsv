@@ -4,4 +4,4 @@ Basic search "within this collection"	N/A	N/A	facets
 Advanced search: Study Cataloging Information	facets	facets	facets but see authorName bug: https://redmine.hmdc.harvard.edu/issues/2931
 Advanced search: Tabular Data Variable Information	no facets	no facets	no facets
 Advanced search: FITS File Information	no facets	no facets	unknown, see https://redmine.hmdc.harvard.edu/issues/2913
-Advanced search: Collections Scope	N/A	N/A	no facets
+Advanced search: Collections Scope	N/A	N/A	facets
