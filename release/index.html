@@ -141,7 +141,15 @@ murphy:dvn pdurbin$
 
 <h2><a name="index3h2"></a>Make release available for download</h2>
 
-<p>Historically, releases have been made available at <a href="http://sourceforge.net/projects/dvn/files/dvn/">http://sourceforge.net/projects/dvn/files/dvn/</a> but more recently they have been available at <a href="http://dvn.github.io/downloads">http://dvn.github.io/downloads</a> as well.</p>
+<p>On dvn-build:</p>
+
+<pre><code>cd tools/installer
+mkdir dvninstall/config
+mkdir dvninstall/appdeploy/dist
+make installer
+</code></pre>
+
+<p>Rename the resulting "dvninstall.zip" to include the release number (i.e. "dvninstall_v3_4.zip") and upload it, the separate war file, a readme, and a buildupdate script (all these files should include the release number) to SourceForge (i.e. <a href="http://sourceforge.net/projects/dvn/files/dvn/3.4/">http://sourceforge.net/projects/dvn/files/dvn/3.4/</a> ).</p>
 
 </div>
 
@@ -164,7 +172,7 @@ murphy:dvn pdurbin$
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Mon Apr 22 11:53:26 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Mon Jun 24 13:02:59 2013</span>
 <!-- Created <span class="date">Thu Apr 11 11:23:44 2013</span> -->
 </div>
 
