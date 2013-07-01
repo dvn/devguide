@@ -102,11 +102,15 @@ data-deposit
 	<ol>
 		<li class="L2"><a href="#index1h2">Project</a>
 		</li>
-		<li class="L2"><a href="#index2h2">What is SWORD?</a>
+		<li class="L2"><a href="#index2h2">URLs (URIs/IRIs) for DVN's Data Deposit API</a>
 		</li>
-		<li class="L2"><a href="#index3h2">SWORD v2 spec</a>
+		<li class="L2"><a href="#index3h2">SWORD Service Document example (from http://dash.harvard.edu )</a>
 		</li>
-		<li class="L2"><a href="#index4h2">Implementations</a>
+		<li class="L2"><a href="#index4h2">What is SWORD?</a>
+		</li>
+		<li class="L2"><a href="#index5h2">SWORD v2 spec</a>
+		</li>
+		<li class="L2"><a href="#index6h2">Implementations</a>
 		<ol>
 			<li class="L3"><a href="#index1h3">Python</a>
 			<ol>
@@ -132,7 +136,7 @@ data-deposit
 			</li>
 		</ol>
 		</li>
-		<li class="L2"><a href="#index5h2">Community</a>
+		<li class="L2"><a href="#index7h2">Community</a>
 		<ol>
 			<li class="L3"><a href="#index4h3">sword-app-tech@lists.sourceforge.net</a>
 			</li>
@@ -152,17 +156,85 @@ data-deposit
 
 <p><a href="http://projects.iq.harvard.edu/ojs-dvn/book/faq-ojs-dataverse-integration-project">http://projects.iq.harvard.edu/ojs-dvn/book/faq-ojs-dataverse-integration-project</a></p>
 
-<h2><a name="index2h2"></a>What is SWORD?</h2>
+<p><a href="http://pkp.sfu.ca/wiki/index.php?title=PKP/Dataverse_Network_Integration">http://pkp.sfu.ca/wiki/index.php?title=PKP/Dataverse_Network_Integration</a></p>
+
+<h2><a name="index2h2"></a>URLs (URIs/IRIs) for DVN's Data Deposit API</h2>
+
+<p>(Per <a href="http://en.wikipedia.org/wiki/Internationalized_resource_identifier">http://en.wikipedia.org/wiki/Internationalized_resource_identifier</a> an IRI is basically a URI that permits Unicode. The SWORD spec uses the term IRI.)</p>
+
+<p>These URLs should be considered unstable. They come from scripts used in development to test the API: <a href="https://github.com/IQSS/dvn/tree/483856509cfeb45b37aad171c5f4597bc935a79a/tools/scripts/data-deposit-api">https://github.com/IQSS/dvn/tree/483856509cfeb45b37aad171c5f4597bc935a79a/tools/scripts/data-deposit-api</a></p>
+
+<ul>
+<li>Service Document URL
+
+<ul>
+<li>/dvn/api/data-deposit/swordv2/service-document</li>
+</ul>
+</li>
+<li>SWORD Collection URL
+
+<ul>
+<li>/dvn/api/data-deposit/swordv2/collection</li>
+</ul>
+</li>
+</ul>
+
+
+<h2><a name="index3h2"></a>SWORD Service Document example (from <a href="http://dash.harvard.edu">http://dash.harvard.edu</a> )</h2>
+
+<p>Digital Access to Scholarship at Harvard (DASH) has implemented SWORDv2, building on the DSpace code base. Their SWORD Service Document looks something like this:</p>
+
+<pre><code>&lt;?xml version="1.0"?&gt;
+&lt;service xmlns="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"&gt;
+  &lt;workspace&gt;
+    &lt;atom:title type="text"&gt;Digital Access to Scholarship at Harvard&lt;/atom:title&gt;
+    &lt;collection href="http://dash.harvard.edu/swordv2/collection/1/2"&gt;
+      &lt;atom:title type="text"&gt;FAS Scholarly Articles&lt;/atom:title&gt;
+      &lt;accept alternate="multipart-related"&gt;*/*&lt;/accept&gt;
+      &lt;collectionPolicy xmlns="http://purl.org/net/sword/terms/"&gt;NOTE: PLACE YOUR OWN LICENSE HERE&lt;/collectionPolicy&gt;
+      &lt;mediation xmlns="http://purl.org/net/sword/terms/"&gt;true&lt;/mediation&gt;
+      &lt;acceptPackaging xmlns="http://purl.org/net/sword/terms/"&gt;http://purl.org/net/sword/package/SimpleZip&lt;/acceptPackaging&gt;
+      &lt;acceptPackaging xmlns="http://purl.org/net/sword/terms/"&gt;http://purl.org/net/sword/package/METSDSpaceSIP&lt;/acceptPackaging&gt;
+      &lt;acceptPackaging xmlns="http://purl.org/net/sword/terms/"&gt;http://purl.org/net/sword/package/Binary&lt;/acceptPackaging&gt;
+      &lt;abstract xmlns="http://purl.org/dc/terms/"&gt;Peer reviewed scholarly articles from the Faculty of Arts and Sciences of Harvard University&lt;/abstract&gt;
+    &lt;/collection&gt;
+    &lt;collection href="http://dash.harvard.edu/swordv2/collection/1/10527970"&gt;
+      &lt;atom:title type="text"&gt;FAS Student Papers&lt;/atom:title&gt;
+      &lt;accept alternate="multipart-related"&gt;*/*&lt;/accept&gt;
+      &lt;collectionPolicy xmlns="http://purl.org/net/sword/terms/"&gt;NOTE: PLACE YOUR OWN LICENSE HERE &lt;/collectionPolicy&gt;
+      &lt;mediation xmlns="http://purl.org/net/sword/terms/"&gt;true&lt;/mediation&gt;
+      &lt;acceptPackaging xmlns="http://purl.org/net/sword/terms/"&gt;http://purl.org/net/sword/package/SimpleZip&lt;/acceptPackaging&gt;
+      &lt;acceptPackaging xmlns="http://purl.org/net/sword/terms/"&gt;http://purl.org/net/sword/package/METSDSpaceSIP&lt;/acceptPackaging&gt;
+      &lt;acceptPackaging xmlns="http://purl.org/net/sword/terms/"&gt;http://purl.org/net/sword/package/Binary&lt;/acceptPackaging&gt;
+      &lt;abstract xmlns="http://purl.org/dc/terms/"&gt;FAS Student Papers&lt;/abstract&gt;
+    &lt;/collection&gt;
+    &lt;collection href="http://dash.harvard.edu/swordv2/collection/1/4927603"&gt;
+      &lt;atom:title type="text"&gt;FAS Theses and Dissertations&lt;/atom:title&gt;
+      &lt;accept alternate="multipart-related"&gt;*/*&lt;/accept&gt;
+      &lt;collectionPolicy xmlns="http://purl.org/net/sword/terms/"&gt;NOTE: PLACE YOUR OWN LICENSE HERE&lt;/collectionPolicy&gt;
+      &lt;mediation xmlns="http://purl.org/net/sword/terms/"&gt;true&lt;/mediation&gt;
+      &lt;acceptPackaging xmlns="http://purl.org/net/sword/terms/"&gt;http://purl.org/net/sword/package/SimpleZip&lt;/acceptPackaging&gt;
+      &lt;acceptPackaging xmlns="http://purl.org/net/sword/terms/"&gt;http://purl.org/net/sword/package/METSDSpaceSIP&lt;/acceptPackaging&gt;
+      &lt;acceptPackaging xmlns="http://purl.org/net/sword/terms/"&gt;http://purl.org/net/sword/package/Binary&lt;/acceptPackaging&gt;
+      &lt;abstract xmlns="http://purl.org/dc/terms/"&gt;FAS Theses and Dissertations&lt;/abstract&gt;
+    &lt;/collection&gt;
+  &lt;/workspace&gt;
+  &lt;generator xmlns="http://www.w3.org/2005/Atom" uri="http://www.dspace.org/ns/sword/2.0/" version="2.0"&gt;dash-webadmin@hulmail.harvard.edu&lt;/generator&gt;
+  &lt;version xmlns="http://purl.org/net/sword/terms/"&gt;2.0&lt;/version&gt;
+&lt;/service&gt;
+</code></pre>
+
+<h2><a name="index4h2"></a>What is SWORD?</h2>
 
 <p><a href="http://swordapp.org">http://swordapp.org</a></p>
 
 <p><a href="http://en.wikipedia.org/wiki/SWORD_%28protocol%29">http://en.wikipedia.org/wiki/SWORD_%28protocol%29</a></p>
 
-<h2><a name="index3h2"></a>SWORD v2 spec</h2>
+<h2><a name="index5h2"></a>SWORD v2 spec</h2>
 
 <p><a href="http://swordapp.github.io/SWORDv2-Profile/SWORDProfile.html">http://swordapp.github.io/SWORDv2-Profile/SWORDProfile.html</a> via <a href="http://swordapp.org/sword-v2/sword-v2-specifications/">http://swordapp.org/sword-v2/sword-v2-specifications/</a></p>
 
-<h2><a name="index4h2"></a>Implementations</h2>
+<h2><a name="index6h2"></a>Implementations</h2>
 
 <p><a href="http://swordapp.org/sword-v2/sword-v2-implementations/">http://swordapp.org/sword-v2/sword-v2-implementations/</a></p>
 
@@ -196,7 +268,7 @@ data-deposit
 
 <p><a href="https://github.com/eprints/eprints/blob/master/perl_lib/EPrints/Apache/CRUD.pm">https://github.com/eprints/eprints/blob/master/perl_lib/EPrints/Apache/CRUD.pm</a></p>
 
-<h2><a name="index5h2"></a>Community</h2>
+<h2><a name="index7h2"></a>Community</h2>
 
 <p><a href="http://swordapp.org/contact/">http://swordapp.org/contact/</a></p>
 
@@ -229,7 +301,7 @@ data-deposit
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Mon Jun 24 10:36:22 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Mon Jul  1 09:57:32 2013</span>
 <!-- Created <span class="date">Tue Jun 18 15:55:01 2013</span> -->
 </div>
 
