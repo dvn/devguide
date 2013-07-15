@@ -103,17 +103,19 @@ data-deposit
 	<ol>
 		<li class="L2"><a href="#index1h2">Project</a>
 		</li>
-		<li class="L2"><a href="#index2h2">URLs (URIs/IRIs) for DVN's Data Deposit API</a>
+		<li class="L2"><a href="#index2h2">What is SWORD? - Simple Web-service Offering Repository Deposit</a>
 		</li>
-		<li class="L2"><a href="#index3h2">SWORD Service Document example (from http://dash.harvard.edu )</a>
+		<li class="L2"><a href="#index3h2">SWORD v2 spec</a>
 		</li>
-		<li class="L2"><a href="#index4h2">What is SWORD?</a>
-		</li>
-		<li class="L2"><a href="#index5h2">SWORD v2 spec</a>
-		</li>
-		<li class="L2"><a href="#index6h2">Implementations</a>
+		<li class="L2"><a href="#index4h2">DVN SWORD v2 implementation</a>
 		<ol>
-			<li class="L3"><a href="#index1h3">Python</a>
+			<li class="L3"><a href="#index1h3">Merging branch into develop</a>
+			</li>
+		</ol>
+		</li>
+		<li class="L2"><a href="#index5h2">SWORD v2 server implementations</a>
+		<ol>
+			<li class="L3"><a href="#index2h3">Python</a>
 			<ol>
 				<li class="L4"><a href="#index1h4">Simple Sword Server (reference implementation)</a>
 				</li>
@@ -121,29 +123,35 @@ data-deposit
 				</li>
 			</ol>
 			</li>
-			<li class="L3"><a href="#index2h3">Java</a>
+			<li class="L3"><a href="#index3h3">Java</a>
 			<ol>
 				<li class="L4"><a href="#index3h4">DSpace</a>
 				</li>
-				<li class="L4"><a href="#index4h4">Fedora (Fedora Commons Repository Software)</a>
+				<li class="L4"><a href="#index4h4">DASH (Digital Access to Scholarship at Harvard) - http://dash.harvard.edu</a>
+				<ol>
+					<li class="L5"><a href="#index1h5">Service Document example from DASH</a>
+					</li>
+				</ol>
+				</li>
+				<li class="L4"><a href="#index5h4">Fedora (Fedora Commons Repository Software)</a>
 				</li>
 			</ol>
 			</li>
-			<li class="L3"><a href="#index3h3">Perl</a>
+			<li class="L3"><a href="#index4h3">Perl</a>
 			<ol>
-				<li class="L4"><a href="#index5h4">EPrints</a>
+				<li class="L4"><a href="#index6h4">EPrints</a>
 				</li>
 			</ol>
 			</li>
 		</ol>
 		</li>
-		<li class="L2"><a href="#index7h2">Community</a>
+		<li class="L2"><a href="#index6h2">Community</a>
 		<ol>
-			<li class="L3"><a href="#index4h3">sword-app-tech@lists.sourceforge.net</a>
+			<li class="L3"><a href="#index5h3">sword-app-tech@lists.sourceforge.net</a>
 			</li>
-			<li class="L3"><a href="#index5h3">https://twitter.com/swordapp</a>
+			<li class="L3"><a href="#index6h3">https://twitter.com/swordapp</a>
 			</li>
-			<li class="L3"><a href="#index6h3">#dspace on Freenode</a>
+			<li class="L3"><a href="#index7h3">#dspace on Freenode</a>
 			</li>
 		</ol>
 		</li>
@@ -155,37 +163,111 @@ data-deposit
 
 <p><a href="https://redmine.hmdc.harvard.edu/issues/3108">https://redmine.hmdc.harvard.edu/issues/3108</a></p>
 
+<p><a href="http://projects.iq.harvard.edu/ojs-dvn/book/project-documentation">http://projects.iq.harvard.edu/ojs-dvn/book/project-documentation</a></p>
+
 <p><a href="http://projects.iq.harvard.edu/ojs-dvn/book/faq-ojs-dataverse-integration-project">http://projects.iq.harvard.edu/ojs-dvn/book/faq-ojs-dataverse-integration-project</a></p>
 
 <p><a href="http://pkp.sfu.ca/wiki/index.php?title=PKP/Dataverse_Network_Integration">http://pkp.sfu.ca/wiki/index.php?title=PKP/Dataverse_Network_Integration</a></p>
 
 <p>"DVN SWORDv2 implementation design" doc: <a href="https://docs.google.com/document/d/1Sw8ZTjelFtWIi1etWqgQ0gPh6ltJuh8voX00WUi7Sng/edit?usp=sharing">https://docs.google.com/document/d/1Sw8ZTjelFtWIi1etWqgQ0gPh6ltJuh8voX00WUi7Sng/edit?usp=sharing</a></p>
 
-<h2><a name="index2h2"></a>URLs (URIs/IRIs) for DVN's Data Deposit API</h2>
+<p><a href="http://projects.iq.harvard.edu/files/styles/os_files_xxlarge/public/ojs-dvn/files/whiteboardofswordv2api.jpg">http://projects.iq.harvard.edu/files/styles/os_files_xxlarge/public/ojs-dvn/files/whiteboardofswordv2api.jpg</a> via <a href="http://projects.iq.harvard.edu/ojs-dvn/blog/update-deep-trenches-swordv2-api-development">http://projects.iq.harvard.edu/ojs-dvn/blog/update-deep-trenches-swordv2-api-development</a></p>
 
-<p>(Per <a href="http://en.wikipedia.org/wiki/Internationalized_resource_identifier">http://en.wikipedia.org/wiki/Internationalized_resource_identifier</a> an IRI is basically a URI that permits Unicode. The SWORD spec uses the term IRI.)</p>
+<h2><a name="index2h2"></a>What is SWORD? - Simple Web-service Offering Repository Deposit</h2>
 
-<p>These URLs should be considered unstable. They come from scripts used in development to test the API: <a href="https://github.com/IQSS/dvn/tree/483856509cfeb45b37aad171c5f4597bc935a79a/tools/scripts/data-deposit-api">https://github.com/IQSS/dvn/tree/483856509cfeb45b37aad171c5f4597bc935a79a/tools/scripts/data-deposit-api</a></p>
+<p><a href="http://swordapp.org">http://swordapp.org</a></p>
+
+<p><a href="http://en.wikipedia.org/wiki/SWORD_%28protocol%29">http://en.wikipedia.org/wiki/SWORD_%28protocol%29</a></p>
+
+<h2><a name="index3h2"></a>SWORD v2 spec</h2>
+
+<p><a href="http://swordapp.github.io/SWORDv2-Profile/SWORDProfile.html">http://swordapp.github.io/SWORDv2-Profile/SWORDProfile.html</a> via <a href="http://swordapp.org/sword-v2/sword-v2-specifications/">http://swordapp.org/sword-v2/sword-v2-specifications/</a></p>
+
+<h2><a name="index4h2"></a>DVN SWORD v2 implementation</h2>
+
+<h3><a name="index1h3"></a>Merging branch into develop</h3>
+
+<p>DVN's SWORD implementation is being developed in this branch: <a href="https://github.com/IQSS/dvn/tree/3108-data-deposit-api">https://github.com/IQSS/dvn/tree/3108-data-deposit-api</a></p>
+
+<p>Before merging, some talking points:</p>
 
 <ul>
-<li>Service Document URL
+<li>Still lots of work to do... so far it allows you to...
 
 <ul>
-<li>/dvn/api/data-deposit/swordv2/service-document</li>
+<li>retrieve a SWORD service document after authenticating</li>
+<li>create a study based on metadata (title, author, etc.) in an XML file, i.e. <a href="https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/tools/scripts/data-deposit-api/atom-entry-study.xml">https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/tools/scripts/data-deposit-api/atom-entry-study.xml</a></li>
 </ul>
 </li>
-<li>SWORD Collection URL
+<li>Plan for using <a href="https://github.com/swordapp/JavaServer2.0">https://github.com/swordapp/JavaServer2.0</a> (sword2-server-1.0-classes.jar)
 
 <ul>
-<li>/dvn/api/data-deposit/swordv2/collection</li>
+<li>Known bugs
+
+<ul>
+<li>first character truncated from filename: <a href="https://github.com/swordapp/JavaServer2.0/pull/2">https://github.com/swordapp/JavaServer2.0/pull/2</a></li>
+<li>multipart deposit results in MalformedStreamException: <a href="https://github.com/dvn/swordpoc/issues/2">https://github.com/dvn/swordpoc/issues/2</a></li>
+</ul>
+</li>
+<li>Fork repo under <a href="https://github.com/IQSS">https://github.com/IQSS</a> and submit pull requests?</li>
+<li>Use Jenkins to build sword2-server-1.0-classes.jar? See <a href="https://help.hmdc.harvard.edu/Ticket/Display.html?id=162404">https://help.hmdc.harvard.edu/Ticket/Display.html?id=162404</a></li>
+</ul>
+</li>
+<li>URL patterns in servlet mappings: <a href="https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/src/DVN-web/web/WEB-INF/web.xml">https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/src/DVN-web/web/WEB-INF/web.xml</a>
+
+<ul>
+<li><code>/api/data-deposit/swordv2/service-document/*</code></li>
+<li><code>/api/data-deposit/swordv2/collection/*</code></li>
+<li><code>/api/data-deposit/swordv2/edit/*</code></li>
+</ul>
+</li>
+<li>Many jars required (and more?):
+
+<ul>
+<li>abdera-core-1.1.1.jar</li>
+<li>abdera-i18n-1.1.1.jar</li>
+<li>abdera-parser-1.1.1.jar</li>
+<li>axiom-api-1.2.10.jar</li>
+<li>axiom-impl-1.2.10.jar</li>
+<li>commons-fileupload-1.2.1.jar</li>
+<li>sword2-server-1.0-classes.jar</li>
+<li>xom-1.1.jar</li>
 </ul>
 </li>
 </ul>
 
 
-<h2><a name="index3h2"></a>SWORD Service Document example (from <a href="http://dash.harvard.edu">http://dash.harvard.edu</a> )</h2>
+<h2><a name="index5h2"></a>SWORD v2 server implementations</h2>
 
-<p>Digital Access to Scholarship at Harvard (DASH) has implemented SWORDv2, building on the DSpace code base. Their SWORD Service Document looks something like this:</p>
+<p><a href="http://swordapp.org/sword-v2/sword-v2-implementations/">http://swordapp.org/sword-v2/sword-v2-implementations/</a></p>
+
+<h3><a name="index2h3"></a>Python</h3>
+
+<h4><a name="index1h4"></a>Simple Sword Server (reference implementation)</h4>
+
+<p><a href="https://github.com/swordapp/Simple-Sword-Server">https://github.com/swordapp/Simple-Sword-Server</a></p>
+
+<p><a href="https://github.com/dvn/swordpoc">https://github.com/dvn/swordpoc</a> (Vagrant environment)</p>
+
+<h4><a name="index2h4"></a>Databank</h4>
+
+<p><a href="https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers">https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers</a></p>
+
+<h3><a name="index3h3"></a>Java</h3>
+
+<h4><a name="index3h4"></a>DSpace</h4>
+
+<p>The DSpace implementation of SWORD v2 was written by the spec lead:</p>
+
+<p><a href="https://github.com/DSpace/DSpace/tree/master/dspace-swordv2/src/main/java/org/dspace/sword2">https://github.com/DSpace/DSpace/tree/master/dspace-swordv2/src/main/java/org/dspace/sword2</a></p>
+
+<h4><a name="index4h4"></a>DASH (Digital Access to Scholarship at Harvard) - <a href="http://dash.harvard.edu">http://dash.harvard.edu</a></h4>
+
+<p>DASH is built on top of DSpace and one of the DASH developers has been submitting pull requests to the common Java server library for SWORD at <a href="https://github.com/bmckinney/JavaServer2.0">https://github.com/bmckinney/JavaServer2.0</a></p>
+
+<h5><a name="index1h5"></a>Service Document example from DASH</h5>
+
+<p>The DASH Service Document looks something like this:</p>
 
 <pre><code>&lt;?xml version="1.0"?&gt;
 &lt;service xmlns="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom"&gt;
@@ -227,61 +309,29 @@ data-deposit
 &lt;/service&gt;
 </code></pre>
 
-<h2><a name="index4h2"></a>What is SWORD?</h2>
-
-<p><a href="http://swordapp.org">http://swordapp.org</a></p>
-
-<p><a href="http://en.wikipedia.org/wiki/SWORD_%28protocol%29">http://en.wikipedia.org/wiki/SWORD_%28protocol%29</a></p>
-
-<h2><a name="index5h2"></a>SWORD v2 spec</h2>
-
-<p><a href="http://swordapp.github.io/SWORDv2-Profile/SWORDProfile.html">http://swordapp.github.io/SWORDv2-Profile/SWORDProfile.html</a> via <a href="http://swordapp.org/sword-v2/sword-v2-specifications/">http://swordapp.org/sword-v2/sword-v2-specifications/</a></p>
-
-<h2><a name="index6h2"></a>Implementations</h2>
-
-<p><a href="http://swordapp.org/sword-v2/sword-v2-implementations/">http://swordapp.org/sword-v2/sword-v2-implementations/</a></p>
-
-<h3><a name="index1h3"></a>Python</h3>
-
-<h4><a name="index1h4"></a>Simple Sword Server (reference implementation)</h4>
-
-<p><a href="https://github.com/swordapp/Simple-Sword-Server">https://github.com/swordapp/Simple-Sword-Server</a></p>
-
-<p><a href="https://github.com/dvn/swordpoc">https://github.com/dvn/swordpoc</a> (Vagrant environment)</p>
-
-<h4><a name="index2h4"></a>Databank</h4>
-
-<p><a href="https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers">https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers</a></p>
-
-<h3><a name="index2h3"></a>Java</h3>
-
-<h4><a name="index3h4"></a>DSpace</h4>
-
-<p><a href="https://github.com/DSpace/DSpace/tree/master/dspace-swordv2/src/main/java/org/dspace/sword2">https://github.com/DSpace/DSpace/tree/master/dspace-swordv2/src/main/java/org/dspace/sword2</a></p>
-
-<h4><a name="index4h4"></a>Fedora (Fedora Commons Repository Software)</h4>
+<h4><a name="index5h4"></a>Fedora (Fedora Commons Repository Software)</h4>
 
 <p><a href="https://github.com/mediashelf/sword2-fedora">https://github.com/mediashelf/sword2-fedora</a> and <a href="https://github.com/mediashelf/sword2-server">https://github.com/mediashelf/sword2-server</a> via <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00317.html">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00317.html</a></p>
 
-<h3><a name="index3h3"></a>Perl</h3>
+<h3><a name="index4h3"></a>Perl</h3>
 
-<h4><a name="index5h4"></a>EPrints</h4>
+<h4><a name="index6h4"></a>EPrints</h4>
 
 <p><a href="http://wiki.eprints.org/w/SWORD">http://wiki.eprints.org/w/SWORD</a></p>
 
 <p><a href="https://github.com/eprints/eprints/blob/master/perl_lib/EPrints/Apache/CRUD.pm">https://github.com/eprints/eprints/blob/master/perl_lib/EPrints/Apache/CRUD.pm</a></p>
 
-<h2><a name="index7h2"></a>Community</h2>
+<h2><a name="index6h2"></a>Community</h2>
 
 <p><a href="http://swordapp.org/contact/">http://swordapp.org/contact/</a></p>
 
-<h3><a name="index4h3"></a><a href="mailto:sword-app-tech@lists.sourceforge.net">sword-app-tech@lists.sourceforge.net</a></h3>
+<h3><a name="index5h3"></a><a href="mailto:sword-app-tech@lists.sourceforge.net">sword-app-tech@lists.sourceforge.net</a></h3>
 
 <p><a href="https://lists.sourceforge.net/lists/listinfo/sword-app-tech">https://lists.sourceforge.net/lists/listinfo/sword-app-tech</a> <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/</a></p>
 
-<h3><a name="index5h3"></a><a href="https://twitter.com/swordapp">https://twitter.com/swordapp</a></h3>
+<h3><a name="index6h3"></a><a href="https://twitter.com/swordapp">https://twitter.com/swordapp</a></h3>
 
-<h3><a name="index6h3"></a>#dspace on Freenode</h3>
+<h3><a name="index7h3"></a>#dspace on Freenode</h3>
 
 </div>
 
@@ -304,7 +354,7 @@ data-deposit
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Tue Jul  2 14:10:16 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Mon Jul 15 10:26:31 2013</span>
 <!-- Created <span class="date">Tue Jun 18 15:55:01 2013</span> -->
 </div>
 
