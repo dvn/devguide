@@ -109,13 +109,15 @@ data-deposit
 		</li>
 		<li class="L2"><a href="#index4h2">DVN SWORD v2 implementation</a>
 		<ol>
-			<li class="L3"><a href="#index1h3">Merging branch into develop</a>
+			<li class="L3"><a href="#index1h3">DVN SWORD v2 implementation roadmap</a>
+			</li>
+			<li class="L3"><a href="#index2h3">Merging branch into develop</a>
 			</li>
 		</ol>
 		</li>
 		<li class="L2"><a href="#index5h2">SWORD v2 server implementations</a>
 		<ol>
-			<li class="L3"><a href="#index2h3">Python</a>
+			<li class="L3"><a href="#index3h3">Python</a>
 			<ol>
 				<li class="L4"><a href="#index1h4">Simple Sword Server (reference implementation)</a>
 				</li>
@@ -123,7 +125,7 @@ data-deposit
 				</li>
 			</ol>
 			</li>
-			<li class="L3"><a href="#index3h3">Java</a>
+			<li class="L3"><a href="#index4h3">Java</a>
 			<ol>
 				<li class="L4"><a href="#index3h4">DSpace</a>
 				</li>
@@ -137,7 +139,7 @@ data-deposit
 				</li>
 			</ol>
 			</li>
-			<li class="L3"><a href="#index4h3">Perl</a>
+			<li class="L3"><a href="#index5h3">Perl</a>
 			<ol>
 				<li class="L4"><a href="#index6h4">EPrints</a>
 				</li>
@@ -147,11 +149,11 @@ data-deposit
 		</li>
 		<li class="L2"><a href="#index6h2">Community</a>
 		<ol>
-			<li class="L3"><a href="#index5h3">sword-app-tech@lists.sourceforge.net</a>
+			<li class="L3"><a href="#index6h3">sword-app-tech@lists.sourceforge.net</a>
 			</li>
-			<li class="L3"><a href="#index6h3">https://twitter.com/swordapp</a>
+			<li class="L3"><a href="#index7h3">https://twitter.com/swordapp</a>
 			</li>
-			<li class="L3"><a href="#index7h3">#dspace on Freenode</a>
+			<li class="L3"><a href="#index8h3">#dspace on Freenode</a>
 			</li>
 		</ol>
 		</li>
@@ -185,11 +187,7 @@ data-deposit
 
 <h2><a name="index4h2"></a>DVN SWORD v2 implementation</h2>
 
-<h3><a name="index1h3"></a>Merging branch into develop</h3>
-
-<p>DVN's SWORD implementation is being developed in this branch: <a href="https://github.com/IQSS/dvn/tree/3108-data-deposit-api">https://github.com/IQSS/dvn/tree/3108-data-deposit-api</a></p>
-
-<p>Before merging, some talking points:</p>
+<h3><a name="index1h3"></a>DVN SWORD v2 implementation roadmap</h3>
 
 <ul>
 <li>Still lots of work to do... so far it allows you to...
@@ -199,6 +197,30 @@ data-deposit
 <li>create a study based on metadata (title, author, etc.) in an XML file, i.e. <a href="https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/tools/scripts/data-deposit-api/atom-entry-study.xml">https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/tools/scripts/data-deposit-api/atom-entry-study.xml</a></li>
 </ul>
 </li>
+<li>Next steps
+
+<ul>
+<li>after creating study, attach binary to it (2 step process is diagrammed at <a href="http://swordapp.org/2012/12/swordv2-compliance-how-to-achieve-it/">http://swordapp.org/2012/12/swordv2-compliance-how-to-achieve-it/</a> and described at <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00327.html">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00327.html</a> )</li>
+<li>improve mapping between dcterms (Dublic Core) and DDI</li>
+<li>merge <a href="https://github.com/IQSS/dvn/tree/3108-data-deposit-api">https://github.com/IQSS/dvn/tree/3108-data-deposit-api</a> into "develop" branch</li>
+<li>deal with known bugs
+
+<ul>
+<li>start committing to <a href="https://github.com/IQSS/swordv2-java-server-library">https://github.com/IQSS/swordv2-java-server-library</a> (bug fixes for <a href="https://github.com/swordapp/JavaServer2.0">https://github.com/swordapp/JavaServer2.0</a> )</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+<h3><a name="index2h3"></a>Merging branch into develop</h3>
+
+<p>DVN's SWORD implementation is being developed in this branch: <a href="https://github.com/IQSS/dvn/tree/3108-data-deposit-api">https://github.com/IQSS/dvn/tree/3108-data-deposit-api</a></p>
+
+<p>Before merging, some talking points:</p>
+
+<ul>
 <li>Plan for using <a href="https://github.com/swordapp/JavaServer2.0">https://github.com/swordapp/JavaServer2.0</a> (sword2-server-1.0-classes.jar)
 
 <ul>
@@ -241,7 +263,7 @@ data-deposit
 
 <p><a href="http://swordapp.org/sword-v2/sword-v2-implementations/">http://swordapp.org/sword-v2/sword-v2-implementations/</a></p>
 
-<h3><a name="index2h3"></a>Python</h3>
+<h3><a name="index3h3"></a>Python</h3>
 
 <h4><a name="index1h4"></a>Simple Sword Server (reference implementation)</h4>
 
@@ -253,7 +275,7 @@ data-deposit
 
 <p><a href="https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers">https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers</a></p>
 
-<h3><a name="index3h3"></a>Java</h3>
+<h3><a name="index4h3"></a>Java</h3>
 
 <h4><a name="index3h4"></a>DSpace</h4>
 
@@ -313,7 +335,7 @@ data-deposit
 
 <p><a href="https://github.com/mediashelf/sword2-fedora">https://github.com/mediashelf/sword2-fedora</a> and <a href="https://github.com/mediashelf/sword2-server">https://github.com/mediashelf/sword2-server</a> via <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00317.html">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00317.html</a></p>
 
-<h3><a name="index4h3"></a>Perl</h3>
+<h3><a name="index5h3"></a>Perl</h3>
 
 <h4><a name="index6h4"></a>EPrints</h4>
 
@@ -325,13 +347,13 @@ data-deposit
 
 <p><a href="http://swordapp.org/contact/">http://swordapp.org/contact/</a></p>
 
-<h3><a name="index5h3"></a><a href="mailto:sword-app-tech@lists.sourceforge.net">sword-app-tech@lists.sourceforge.net</a></h3>
+<h3><a name="index6h3"></a><a href="mailto:sword-app-tech@lists.sourceforge.net">sword-app-tech@lists.sourceforge.net</a></h3>
 
 <p><a href="https://lists.sourceforge.net/lists/listinfo/sword-app-tech">https://lists.sourceforge.net/lists/listinfo/sword-app-tech</a> <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/</a></p>
 
-<h3><a name="index6h3"></a><a href="https://twitter.com/swordapp">https://twitter.com/swordapp</a></h3>
+<h3><a name="index7h3"></a><a href="https://twitter.com/swordapp">https://twitter.com/swordapp</a></h3>
 
-<h3><a name="index7h3"></a>#dspace on Freenode</h3>
+<h3><a name="index8h3"></a>#dspace on Freenode</h3>
 
 </div>
 
@@ -354,7 +376,7 @@ data-deposit
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Mon Jul 15 10:26:31 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Mon Jul 15 16:09:49 2013</span>
 <!-- Created <span class="date">Tue Jun 18 15:55:01 2013</span> -->
 </div>
 
