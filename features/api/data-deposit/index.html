@@ -108,16 +108,10 @@ data-deposit
 		<li class="L2"><a href="#index3h2">SWORD v2 spec</a>
 		</li>
 		<li class="L2"><a href="#index4h2">DVN SWORD v2 implementation</a>
-		<ol>
-			<li class="L3"><a href="#index1h3">DVN SWORD v2 implementation roadmap</a>
-			</li>
-			<li class="L3"><a href="#index2h3">Merging branch into develop</a>
-			</li>
-		</ol>
 		</li>
 		<li class="L2"><a href="#index5h2">SWORD v2 server implementations</a>
 		<ol>
-			<li class="L3"><a href="#index3h3">Python</a>
+			<li class="L3"><a href="#index1h3">Python</a>
 			<ol>
 				<li class="L4"><a href="#index1h4">Simple Sword Server (reference implementation)</a>
 				</li>
@@ -125,7 +119,7 @@ data-deposit
 				</li>
 			</ol>
 			</li>
-			<li class="L3"><a href="#index4h3">Java</a>
+			<li class="L3"><a href="#index2h3">Java</a>
 			<ol>
 				<li class="L4"><a href="#index3h4">DSpace</a>
 				</li>
@@ -139,7 +133,7 @@ data-deposit
 				</li>
 			</ol>
 			</li>
-			<li class="L3"><a href="#index5h3">Perl</a>
+			<li class="L3"><a href="#index3h3">Perl</a>
 			<ol>
 				<li class="L4"><a href="#index6h4">EPrints</a>
 				</li>
@@ -149,11 +143,11 @@ data-deposit
 		</li>
 		<li class="L2"><a href="#index6h2">Community</a>
 		<ol>
-			<li class="L3"><a href="#index6h3">sword-app-tech@lists.sourceforge.net</a>
+			<li class="L3"><a href="#index4h3">sword-app-tech@lists.sourceforge.net</a>
 			</li>
-			<li class="L3"><a href="#index7h3">https://twitter.com/swordapp</a>
+			<li class="L3"><a href="#index5h3">https://twitter.com/swordapp</a>
 			</li>
-			<li class="L3"><a href="#index8h3">#dspace on Freenode</a>
+			<li class="L3"><a href="#index6h3">#dspace on Freenode</a>
 			</li>
 		</ol>
 		</li>
@@ -171,8 +165,6 @@ data-deposit
 
 <p><a href="http://pkp.sfu.ca/wiki/index.php?title=PKP/Dataverse_Network_Integration">http://pkp.sfu.ca/wiki/index.php?title=PKP/Dataverse_Network_Integration</a></p>
 
-<p>"DVN SWORDv2 implementation design" doc: <a href="https://docs.google.com/document/d/1Sw8ZTjelFtWIi1etWqgQ0gPh6ltJuh8voX00WUi7Sng/edit?usp=sharing">https://docs.google.com/document/d/1Sw8ZTjelFtWIi1etWqgQ0gPh6ltJuh8voX00WUi7Sng/edit?usp=sharing</a></p>
-
 <p><a href="http://projects.iq.harvard.edu/files/styles/os_files_xxlarge/public/ojs-dvn/files/whiteboardofswordv2api.jpg">http://projects.iq.harvard.edu/files/styles/os_files_xxlarge/public/ojs-dvn/files/whiteboardofswordv2api.jpg</a> via <a href="http://projects.iq.harvard.edu/ojs-dvn/blog/update-deep-trenches-swordv2-api-development">http://projects.iq.harvard.edu/ojs-dvn/blog/update-deep-trenches-swordv2-api-development</a></p>
 
 <h2><a name="index2h2"></a>What is SWORD? - Simple Web-service Offering Repository Deposit</h2>
@@ -187,60 +179,47 @@ data-deposit
 
 <h2><a name="index4h2"></a>DVN SWORD v2 implementation</h2>
 
-<h3><a name="index1h3"></a>DVN SWORD v2 implementation roadmap</h3>
-
 <ul>
-<li>Still lots of work to do... so far it allows you to...
+<li>Status: Still lots of work to do... so far it allows you to...
 
 <ul>
 <li>retrieve a SWORD service document after authenticating</li>
-<li>create a study based on metadata (title, author, etc.) in an XML file, i.e. <a href="https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/tools/scripts/data-deposit-api/atom-entry-study.xml">https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/tools/scripts/data-deposit-api/atom-entry-study.xml</a></li>
+<li>create a study based on metadata (title, author, etc.) in an XML file, i.e. <a href="https://github.com/IQSS/dvn/blob/10ece42ec9236ccd2e58eea2e69c7b54fc783133/tools/scripts/data-deposit-api/atom-entry-study.xml">https://github.com/IQSS/dvn/blob/10ece42ec9236ccd2e58eea2e69c7b54fc783133/tools/scripts/data-deposit-api/atom-entry-study.xml</a></li>
+<li>upload a file to a study (treated as binary for now)</li>
+</ul>
+</li>
+<li>Communication with OJS developers: <a href="http://projects.iq.harvard.edu/ojs-dvn/people">http://projects.iq.harvard.edu/ojs-dvn/people</a>
+
+<ul>
+<li>DVN SWORDv2 implementation design document: <a href="https://docs.google.com/document/d/1Sw8ZTjelFtWIi1etWqgQ0gPh6ltJuh8voX00WUi7Sng/edit?usp=sharing">https://docs.google.com/document/d/1Sw8ZTjelFtWIi1etWqgQ0gPh6ltJuh8voX00WUi7Sng/edit?usp=sharing</a></li>
+<li>Sample Atom Entry (SWORDv2) BTW OJS &amp; DVN (with notes): <a href="https://docs.google.com/document/d/1Rn70XItfA6_mJ4JA3I7m4em0spfdXIIHhwkrgCl40uE/edit?usp=sharing">https://docs.google.com/document/d/1Rn70XItfA6_mJ4JA3I7m4em0spfdXIIHhwkrgCl40uE/edit?usp=sharing</a></li>
+<li><a href="http://irclog.iq.harvard.edu/dvn/2013-07-02">http://irclog.iq.harvard.edu/dvn/2013-07-02</a></li>
+<li><a href="http://irclog.iq.harvard.edu/dvn/2013-07-10">http://irclog.iq.harvard.edu/dvn/2013-07-10</a></li>
 </ul>
 </li>
 <li>Next steps
 
 <ul>
-<li>after creating study, attach binary to it (2 step process is diagrammed at <a href="http://swordapp.org/2012/12/swordv2-compliance-how-to-achieve-it/">http://swordapp.org/2012/12/swordv2-compliance-how-to-achieve-it/</a> and described at <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00327.html">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00327.html</a> )</li>
+<li>experiment with different files (RData, CSV, Stata, etc.) and ingest them</li>
 <li>improve mapping between dcterms (Dublic Core) and DDI</li>
-<li>merge <a href="https://github.com/IQSS/dvn/tree/3108-data-deposit-api">https://github.com/IQSS/dvn/tree/3108-data-deposit-api</a> into "develop" branch</li>
-<li>deal with known bugs
-
-<ul>
-<li>start committing to <a href="https://github.com/IQSS/swordv2-java-server-library">https://github.com/IQSS/swordv2-java-server-library</a> (bug fixes for <a href="https://github.com/swordapp/JavaServer2.0">https://github.com/swordapp/JavaServer2.0</a> )</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-
-<h3><a name="index2h3"></a>Merging branch into develop</h3>
-
-<p>DVN's SWORD implementation is being developed in this branch: <a href="https://github.com/IQSS/dvn/tree/3108-data-deposit-api">https://github.com/IQSS/dvn/tree/3108-data-deposit-api</a></p>
-
-<p>Before merging, some talking points:</p>
-
-<ul>
-<li>Plan for using <a href="https://github.com/swordapp/JavaServer2.0">https://github.com/swordapp/JavaServer2.0</a> (sword2-server-1.0-classes.jar)
-
-<ul>
-<li>Known bugs
+<li>deal with known bugs in the official SWORDv2 Java server library: <a href="https://github.com/swordapp/JavaServer2.0">https://github.com/swordapp/JavaServer2.0</a> (sword2-server-1.0-classes.jar) by committing to <a href="https://github.com/IQSS/swordv2-java-server-library">https://github.com/IQSS/swordv2-java-server-library</a> and build sword2-server-1.0-classes.jar with build.hmdc (Jenkins) per <a href="https://help.hmdc.harvard.edu/Ticket/Display.html?id=162404">https://help.hmdc.harvard.edu/Ticket/Display.html?id=162404</a>
 
 <ul>
 <li>first character truncated from filename: <a href="https://github.com/swordapp/JavaServer2.0/pull/2">https://github.com/swordapp/JavaServer2.0/pull/2</a></li>
 <li>multipart deposit results in MalformedStreamException: <a href="https://github.com/dvn/swordpoc/issues/2">https://github.com/dvn/swordpoc/issues/2</a></li>
 </ul>
 </li>
-<li>Fork repo under <a href="https://github.com/IQSS">https://github.com/IQSS</a> and submit pull requests?</li>
-<li>Use Jenkins to build sword2-server-1.0-classes.jar? See <a href="https://help.hmdc.harvard.edu/Ticket/Display.html?id=162404">https://help.hmdc.harvard.edu/Ticket/Display.html?id=162404</a></li>
-</ul>
-</li>
+<li>force https</li>
+<li>merge <a href="https://github.com/IQSS/dvn/tree/3108-data-deposit-api">https://github.com/IQSS/dvn/tree/3108-data-deposit-api</a> into "develop" branch
+
+<ul>
 <li>URL patterns in servlet mappings: <a href="https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/src/DVN-web/web/WEB-INF/web.xml">https://github.com/IQSS/dvn/blob/de603773c779a45f67b85908e8746b90c6e04661/src/DVN-web/web/WEB-INF/web.xml</a>
 
 <ul>
 <li><code>/api/data-deposit/swordv2/service-document/*</code></li>
 <li><code>/api/data-deposit/swordv2/collection/*</code></li>
 <li><code>/api/data-deposit/swordv2/edit/*</code></li>
+<li><code>/api/data-deposit/swordv2/edit-media/*</code></li>
 </ul>
 </li>
 <li>Many jars required (and more?):
@@ -257,13 +236,37 @@ data-deposit
 </ul>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+<li>Questions for the DVN team
+
+<ul>
+<li>when should studies be released?</li>
+<li>when should a journal dataverse be released?</li>
+<li>how are we going to test the DVN SWORDv2 implemention?
+
+<ul>
+<li>the SWORDv2 client at <a href="https://github.com/swordapp/JavaClient2.0">https://github.com/swordapp/JavaClient2.0</a> seems promising. Some trouble getting it to communicate over <a href="HTTPS:">HTTPS:</a> how to tell Abdera to ignore invalid cert on localhost - <a href="http://mail-archives.apache.org/mod_mbox/abdera-user/201307.mbox/%3CCAHxGWy7kwpTqg6M9m4-SetATeLn9uBu2%2BXwOaPwXZmLME1m3rg%40mail.gmail.com%3E">http://mail-archives.apache.org/mod_mbox/abdera-user/201307.mbox/%3CCAHxGWy7kwpTqg6M9m4-SetATeLn9uBu2%2BXwOaPwXZmLME1m3rg%40mail.gmail.com%3E</a></li>
+</ul>
+</li>
+<li>how are we going to test interoperability with the OJS plugin?</li>
+</ul>
+</li>
+<li>Questions for the SWORD community
+
+<ul>
+<li>To upload a file, it is ok to continue to use the SWORDv2CollectionServlet (POST) or should we switch to the SWORDv2MediaResourceServlet (PUT)? A thread has been started on this: [sword-app-tech] POST atom entry, then PUT media resource - <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00331.html">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00331.html</a></li>
+</ul>
+</li>
+</ul>
 
 
 <h2><a name="index5h2"></a>SWORD v2 server implementations</h2>
 
 <p><a href="http://swordapp.org/sword-v2/sword-v2-implementations/">http://swordapp.org/sword-v2/sword-v2-implementations/</a></p>
 
-<h3><a name="index3h3"></a>Python</h3>
+<h3><a name="index1h3"></a>Python</h3>
 
 <h4><a name="index1h4"></a>Simple Sword Server (reference implementation)</h4>
 
@@ -275,7 +278,7 @@ data-deposit
 
 <p><a href="https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers">https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers</a></p>
 
-<h3><a name="index4h3"></a>Java</h3>
+<h3><a name="index2h3"></a>Java</h3>
 
 <h4><a name="index3h4"></a>DSpace</h4>
 
@@ -335,7 +338,7 @@ data-deposit
 
 <p><a href="https://github.com/mediashelf/sword2-fedora">https://github.com/mediashelf/sword2-fedora</a> and <a href="https://github.com/mediashelf/sword2-server">https://github.com/mediashelf/sword2-server</a> via <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00317.html">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00317.html</a></p>
 
-<h3><a name="index5h3"></a>Perl</h3>
+<h3><a name="index3h3"></a>Perl</h3>
 
 <h4><a name="index6h4"></a>EPrints</h4>
 
@@ -347,13 +350,13 @@ data-deposit
 
 <p><a href="http://swordapp.org/contact/">http://swordapp.org/contact/</a></p>
 
-<h3><a name="index6h3"></a><a href="mailto:sword-app-tech@lists.sourceforge.net">sword-app-tech@lists.sourceforge.net</a></h3>
+<h3><a name="index4h3"></a><a href="mailto:sword-app-tech@lists.sourceforge.net">sword-app-tech@lists.sourceforge.net</a></h3>
 
 <p><a href="https://lists.sourceforge.net/lists/listinfo/sword-app-tech">https://lists.sourceforge.net/lists/listinfo/sword-app-tech</a> <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/</a></p>
 
-<h3><a name="index7h3"></a><a href="https://twitter.com/swordapp">https://twitter.com/swordapp</a></h3>
+<h3><a name="index5h3"></a><a href="https://twitter.com/swordapp">https://twitter.com/swordapp</a></h3>
 
-<h3><a name="index8h3"></a>#dspace on Freenode</h3>
+<h3><a name="index6h3"></a>#dspace on Freenode</h3>
 
 </div>
 
@@ -376,7 +379,7 @@ data-deposit
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Mon Jul 15 16:09:49 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Wed Jul 17 12:34:11 2013</span>
 <!-- Created <span class="date">Tue Jun 18 15:55:01 2013</span> -->
 </div>
 
