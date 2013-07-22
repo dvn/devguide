@@ -104,6 +104,10 @@ data-deposit
 		<li class="L2"><a href="#index1h2">Project</a>
 		</li>
 		<li class="L2"><a href="#index2h2">What is SWORD? - Simple Web-service Offering Repository Deposit</a>
+		<ol>
+			<li class="L3"><a href="#index1h3">Intro to SWORD v2 video by Cottage Labs</a>
+			</li>
+		</ol>
 		</li>
 		<li class="L2"><a href="#index3h2">SWORD v2 spec</a>
 		</li>
@@ -111,7 +115,7 @@ data-deposit
 		</li>
 		<li class="L2"><a href="#index5h2">SWORD v2 server implementations</a>
 		<ol>
-			<li class="L3"><a href="#index1h3">Python</a>
+			<li class="L3"><a href="#index2h3">Python</a>
 			<ol>
 				<li class="L4"><a href="#index1h4">Simple Sword Server (reference implementation)</a>
 				</li>
@@ -119,7 +123,7 @@ data-deposit
 				</li>
 			</ol>
 			</li>
-			<li class="L3"><a href="#index2h3">Java</a>
+			<li class="L3"><a href="#index3h3">Java</a>
 			<ol>
 				<li class="L4"><a href="#index3h4">DSpace</a>
 				</li>
@@ -133,7 +137,7 @@ data-deposit
 				</li>
 			</ol>
 			</li>
-			<li class="L3"><a href="#index3h3">Perl</a>
+			<li class="L3"><a href="#index4h3">Perl</a>
 			<ol>
 				<li class="L4"><a href="#index6h4">EPrints</a>
 				</li>
@@ -143,11 +147,11 @@ data-deposit
 		</li>
 		<li class="L2"><a href="#index6h2">Community</a>
 		<ol>
-			<li class="L3"><a href="#index4h3">sword-app-tech@lists.sourceforge.net</a>
+			<li class="L3"><a href="#index5h3">sword-app-tech@lists.sourceforge.net</a>
 			</li>
-			<li class="L3"><a href="#index5h3">https://twitter.com/swordapp</a>
+			<li class="L3"><a href="#index6h3">https://twitter.com/swordapp</a>
 			</li>
-			<li class="L3"><a href="#index6h3">#dspace on Freenode</a>
+			<li class="L3"><a href="#index7h3">#dspace on Freenode</a>
 			</li>
 		</ol>
 		</li>
@@ -172,6 +176,95 @@ data-deposit
 <p><a href="http://swordapp.org">http://swordapp.org</a></p>
 
 <p><a href="http://en.wikipedia.org/wiki/SWORD_%28protocol%29">http://en.wikipedia.org/wiki/SWORD_%28protocol%29</a></p>
+
+<h3><a name="index1h3"></a>Intro to SWORD v2 video by Cottage Labs</h3>
+
+<p><a href="http://cottagelabs.com/news/intro-to-sword-2">http://cottagelabs.com/news/intro-to-sword-2</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>service-document-uri</th>
+            <th>collection-uri</th>
+            <th>edit-uri</th>
+            <th>edit-media-uri</th>
+            <th>statement-uri</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>GET</td>
+            <td>list of collections</td>
+            <td>?</td>
+            <td>representation of container</td>
+            <td>download package</td>
+            <td>describes objects</td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>?</td>
+            <td>create new container</td>
+            <td>?</td>
+            <td>add content</td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>?</td>
+            <td>?</td>
+            <td>?</td>
+            <td>replace content</td>
+            <td>?</td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>?</td>
+            <td>?</td>
+            <td>delete container</td>
+            <td>delete all content from container</td>
+            <td>?</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p><a href="./swordv2-verbs.tsv">Direct data download</a></p>
+
+<ul>
+<li>GET the service-document-uri to retrieve a list of collections</li>
+<li>POST a package of content to the server which will
+
+<ul>
+<li>unpack it</li>
+<li>create an object (a container?) and put into it
+
+<ul>
+<li>metadata</li>
+<li>files</li>
+</ul>
+</li>
+<li>return a deposit receipt, which is an Atom entry, which contains three URIs:
+
+<ul>
+<li>edit-uri</li>
+<li>edit-media-uri</li>
+<li>statement-uri</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>GET the edit-uri to retrieve the same deposit receipt from the original POST (a representation of the container)</li>
+<li>GET the edit-media-uri to get a package of content, possibly in a zip file</li>
+<li>GET the statement-uri to retrieve a document (OAI-ORE or Atom feed) that describes the structure of the objects on the server so we can build a representation of the object on the client end</li>
+<li>PUT a new package on the edit-media URI to <em>replace</em> content</li>
+<li>POST a package to the edit-uri <em>adds</em> new content</li>
+<li>DELETE to the edit-media-uri deletes all the content from the container</li>
+<li>DELETE to the edit-uri deletes the entire object</li>
+</ul>
+
+
+<p>See also screenshots at Intro to SWORDv2 Cottage Labs video - Google Drive - <a href="https://docs.google.com/a/g.harvard.edu/document/d/1oyz3ZTfZA_7FFNpZNaxR6cDJzLXgm3X1ybwUkMQwL1Q/edit">https://docs.google.com/a/g.harvard.edu/document/d/1oyz3ZTfZA_7FFNpZNaxR6cDJzLXgm3X1ybwUkMQwL1Q/edit</a></p>
 
 <h2><a name="index3h2"></a>SWORD v2 spec</h2>
 
@@ -266,7 +359,7 @@ data-deposit
 
 <p><a href="http://swordapp.org/sword-v2/sword-v2-implementations/">http://swordapp.org/sword-v2/sword-v2-implementations/</a></p>
 
-<h3><a name="index1h3"></a>Python</h3>
+<h3><a name="index2h3"></a>Python</h3>
 
 <h4><a name="index1h4"></a>Simple Sword Server (reference implementation)</h4>
 
@@ -278,7 +371,7 @@ data-deposit
 
 <p><a href="https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers">https://github.com/dataflow/RDFDatabank/wiki/SWORD-overview-for-developers</a></p>
 
-<h3><a name="index2h3"></a>Java</h3>
+<h3><a name="index3h3"></a>Java</h3>
 
 <h4><a name="index3h4"></a>DSpace</h4>
 
@@ -338,7 +431,7 @@ data-deposit
 
 <p><a href="https://github.com/mediashelf/sword2-fedora">https://github.com/mediashelf/sword2-fedora</a> and <a href="https://github.com/mediashelf/sword2-server">https://github.com/mediashelf/sword2-server</a> via <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00317.html">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/msg00317.html</a></p>
 
-<h3><a name="index3h3"></a>Perl</h3>
+<h3><a name="index4h3"></a>Perl</h3>
 
 <h4><a name="index6h4"></a>EPrints</h4>
 
@@ -350,13 +443,13 @@ data-deposit
 
 <p><a href="http://swordapp.org/contact/">http://swordapp.org/contact/</a></p>
 
-<h3><a name="index4h3"></a><a href="mailto:sword-app-tech@lists.sourceforge.net">sword-app-tech@lists.sourceforge.net</a></h3>
+<h3><a name="index5h3"></a><a href="mailto:sword-app-tech@lists.sourceforge.net">sword-app-tech@lists.sourceforge.net</a></h3>
 
 <p><a href="https://lists.sourceforge.net/lists/listinfo/sword-app-tech">https://lists.sourceforge.net/lists/listinfo/sword-app-tech</a> <a href="http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/">http://www.mail-archive.com/sword-app-tech@lists.sourceforge.net/</a></p>
 
-<h3><a name="index5h3"></a><a href="https://twitter.com/swordapp">https://twitter.com/swordapp</a></h3>
+<h3><a name="index6h3"></a><a href="https://twitter.com/swordapp">https://twitter.com/swordapp</a></h3>
 
-<h3><a name="index6h3"></a>#dspace on Freenode</h3>
+<h3><a name="index7h3"></a>#dspace on Freenode</h3>
 
 </div>
 
@@ -379,7 +472,7 @@ data-deposit
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Wed Jul 17 12:49:58 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Mon Jul 22 15:21:14 2013</span>
 <!-- Created <span class="date">Tue Jun 18 15:55:01 2013</span> -->
 </div>
 

@@ -1,0 +1,5 @@
+	service-document-uri	collection-uri	edit-uri	edit-media-uri	statement-uri
+GET	list of collections	?	representation of container	download package	describes objects
+POST	?	create new container	?	add content	?
+PUT	?	?	?	replace content	?
+DELETE	?	?	delete container	delete all content from container	?
