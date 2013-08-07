@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width">
+<!-- <link rel="alternate" type="application/atom+xml" href="http://git.example.com/?p=wiki.git;a=atom" title="wiki.example.com commits"/> -->
+<title>
+
+DVN Developer's Guide /
+
+features /
+
+api /
+
+data-deposit /
+
+v1
+</title>
+
+<link rel="stylesheet" href="../../../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../../../local.css" type="text/css" />
+
+
+
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../../../">DVN Developer's Guide</a> / 
+
+<a href="../../../">features</a> / 
+
+<a href="../../">api</a> / 
+
+<a href="../">data-deposit</a> / 
+
+</span>
+<span class="title">
+v1
+
+</span>
+</span>
+
+</div>
+
+<!--
+
+<div class="actions">
+<ul>
+
+
+
+<li><a href="FIXME">History</a></li>
+
+
+
+
+
+
+
+</ul>
+</div>
+
+-->
+
+
+
+</div>
+
+
+<div class="sidebar">
+<ul>
+<li><a href="../../../../build/">Build</a></li>
+<li><a href="../../../../deploy/">Deploy</a></li>
+<li><a href="../../../../commit/">Commit</a></li>
+<li><a href="../../../../push/">Push</a></li>
+<li><a href="../../../../release/">Release</a></li>
+<li><a href="../../../../branches/">Branches</a></li>
+<li><a href="../../../">Features</a></li>
+<li><a href="../../../../tips/">Tips</a></li>
+<li><a href="../../../../errors/">Errors</a></li>
+<li><a href="../../../../sitemap/">Sitemap</a></li>
+</ul>
+
+
+</div>
+
+
+<div id="pagebody">
+
+<div id="content">
+
+
+<div class="toc">
+	<ol>
+		<li class="L2"><a href="#index1h2">DVN Data Deposit API v1 examples using curl</a>
+		<ol>
+			<li class="L3"><a href="#index1h3">Retrieve SWORD service document</a>
+			</li>
+			<li class="L3"><a href="#index2h3">Create a study</a>
+			</li>
+			<li class="L3"><a href="#index3h3">Deposit data into a study</a>
+			</li>
+			<li class="L3"><a href="#index4h3">List studies in a dataverse</a>
+			</li>
+			<li class="L3"><a href="#index5h3">Delete a study</a>
+			</li>
+			<li class="L3"><a href="#index6h3">Replacing cataloging information (title, author, etc.) for a study</a>
+			</li>
+			<li class="L3"><a href="#index7h3">Replace all files on a study with a new zip file</a>
+			</li>
+			<li class="L3"><a href="#index8h3">Release a study</a>
+			</li>
+		</ol>
+		</li>
+		<li class="L2"><a href="#index2h2">curl reference</a>
+		<ol>
+			<li class="L3"><a href="#index9h3">--upload-file is a PUT</a>
+			</li>
+			<li class="L3"><a href="#index10h3">--data-binary is a POST</a>
+			</li>
+		</ol>
+		</li>
+	</ol>
+</div>
+
+
+<h2><a name="index1h2"></a>DVN Data Deposit API v1 examples using curl</h2>
+
+<p>Please note that this is all subject to change! <a href="https://github.com/IQSS/dvn/tree/develop/tools/scripts/data-deposit-api">https://github.com/IQSS/dvn/tree/develop/tools/scripts/data-deposit-api</a> contains the latest working example code.</p>
+
+<h3><a name="index1h3"></a>Retrieve SWORD service document</h3>
+
+<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/service-document
+</code></pre>
+
+<h3><a name="index2h3"></a>Create a study</h3>
+
+<pre><code>curl --insecure -s --data-binary "@atom-entry-study.xml" -H "Content-Type: application/atom+xml" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
+</code></pre>
+
+<h3><a name="index3h3"></a>Deposit data into a study</h3>
+
+<pre><code>curl --include --insecure -s --upload-file example.zip -H "Content-Disposition: filename=example.zip" -H "Content-Type: application/zip" -H "Packaging: http://purl.org/net/sword/package/SimpleZip" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/hdl:TEST/12345
+</code></pre>
+
+<h3><a name="index4h3"></a>List studies in a dataverse</h3>
+
+<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
+</code></pre>
+
+<h3><a name="index5h3"></a>Delete a study</h3>
+
+<pre><code>curl -i --insecure -s -X DELETE https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/hdl:TEST/12345
+</code></pre>
+
+<h3><a name="index6h3"></a>Replacing cataloging information (title, author, etc.) for a study</h3>
+
+<pre><code>curl --insecure -s --upload-file "atom-entry-study2.xml" -H "Content-Type: application/atom+xml" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/hdl:TEST/12345
+</code></pre>
+
+<h3><a name="index7h3"></a>Replace all files on a study with a new zip file</h3>
+
+<pre><code>curl --include --insecure -s --upload-file example2.zip -H "Content-Disposition: filename=example2.zip" -H "Content-Type: application/zip" -H "Packaging: http://purl.org/net/sword/package/SimpleZip" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/hdl:TEST/12345
+</code></pre>
+
+<h3><a name="index8h3"></a>Release a study</h3>
+
+<pre><code>curl --insecure -s -X POST -H "In-Progress: false" --upload-file zero-length-file.txt https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/hdl:1902.1/XPX0W
+</code></pre>
+
+<h2><a name="index2h2"></a>curl reference</h2>
+
+<h3><a name="index9h3"></a>--upload-file is a PUT</h3>
+
+<p>"If this is used on an HTTP(S) server, the PUT command will be used." -- <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
+
+<h3><a name="index10h3"></a>--data-binary is a POST</h3>
+
+<p>"(HTTP) This posts data" -- <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last <a href="FIXME">updated</a> <span class="date">Wed Aug  7 08:56:59 2013</span>
+<!-- Created <span class="date">Wed Aug  7 08:34:00 2013</span> -->
+</div>
+
+</div>
+
+
+<!-- from DVN Developer's Guide -->
+</div>
+
+</div>
+
+<hr>
+
+<div>
+DVN Dev Team
+</div>
+
+</body>
+</html>

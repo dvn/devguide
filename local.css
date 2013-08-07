@@ -80,6 +80,7 @@ pre {
 	line-height: 1.0;
 	color: #461b7e;
         margin-left: 8px;
+	white-space: pre-wrap; /* http://www.w3.org/TR/CSS2/text.html */
 }
 
 td {
