@@ -115,21 +115,29 @@ v1
 			</li>
 			<li class="L3"><a href="#index4h3">List studies in a dataverse</a>
 			</li>
-			<li class="L3"><a href="#index5h3">Delete a study</a>
+			<li class="L3"><a href="#index5h3">Display a study atom entry (contains statement uri, isReleased state, and isInDraft state)</a>
 			</li>
-			<li class="L3"><a href="#index6h3">Replacing cataloging information (title, author, etc.) for a study</a>
+			<li class="L3"><a href="#index6h3">Display a study statement (contains feed of file entries)</a>
 			</li>
-			<li class="L3"><a href="#index7h3">Replace all files on a study with a new zip file</a>
+			<li class="L3"><a href="#index7h3">Delete a study</a>
 			</li>
-			<li class="L3"><a href="#index8h3">Release a study</a>
+			<li class="L3"><a href="#index8h3">Replacing cataloging information (title, author, etc.) for a study</a>
+			</li>
+			<li class="L3"><a href="#index9h3">Add files to a study with a zip file</a>
+			</li>
+			<li class="L3"><a href="#index10h3">Delete a file by database id</a>
+			</li>
+			<li class="L3"><a href="#index11h3">Replace all files on a study with a new zip file</a>
+			</li>
+			<li class="L3"><a href="#index12h3">Release a study</a>
 			</li>
 		</ol>
 		</li>
 		<li class="L2"><a href="#index2h2">curl reference</a>
 		<ol>
-			<li class="L3"><a href="#index9h3">--upload-file is a PUT</a>
+			<li class="L3"><a href="#index13h3">--upload-file is a PUT</a>
 			</li>
-			<li class="L3"><a href="#index10h3">--data-binary is a POST</a>
+			<li class="L3"><a href="#index14h3">--data-binary is a POST</a>
 			</li>
 		</ol>
 		</li>
@@ -163,33 +171,53 @@ v1
 <pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
 </code></pre>
 
-<h3><a name="index5h3"></a>Delete a study</h3>
+<h3><a name="index5h3"></a>Display a study atom entry (contains statement uri, isReleased state, and isInDraft state)</h3>
+
+<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/hdl:TEST/12345
+</code></pre>
+
+<h3><a name="index6h3"></a>Display a study statement (contains feed of file entries)</h3>
+
+<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/statement/hdl:TEST/12345
+</code></pre>
+
+<h3><a name="index7h3"></a>Delete a study</h3>
 
 <pre><code>curl -i --insecure -s -X DELETE https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/hdl:TEST/12345
 </code></pre>
 
-<h3><a name="index6h3"></a>Replacing cataloging information (title, author, etc.) for a study</h3>
+<h3><a name="index8h3"></a>Replacing cataloging information (title, author, etc.) for a study</h3>
 
 <pre><code>curl --insecure -s --upload-file "atom-entry-study2.xml" -H "Content-Type: application/atom+xml" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/hdl:TEST/12345
 </code></pre>
 
-<h3><a name="index7h3"></a>Replace all files on a study with a new zip file</h3>
+<h3><a name="index9h3"></a>Add files to a study with a zip file</h3>
+
+<pre><code>curl --insecure -s --data-binary @another.zip -H "Content-Disposition: filename=another.zip" -H "Content-Type: application/zip" -H "Packaging: http://purl.org/net/sword/package/SimpleZip" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/hdl:TEST/12345
+</code></pre>
+
+<h3><a name="index10h3"></a>Delete a file by database id</h3>
+
+<pre><code>curl --include --insecure -s -X DELETE https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/file/2325541
+</code></pre>
+
+<h3><a name="index11h3"></a>Replace all files on a study with a new zip file</h3>
 
 <pre><code>curl --include --insecure -s --upload-file example2.zip -H "Content-Disposition: filename=example2.zip" -H "Content-Type: application/zip" -H "Packaging: http://purl.org/net/sword/package/SimpleZip" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/hdl:TEST/12345
 </code></pre>
 
-<h3><a name="index8h3"></a>Release a study</h3>
+<h3><a name="index12h3"></a>Release a study</h3>
 
 <pre><code>curl --insecure -s -X POST -H "In-Progress: false" --upload-file zero-length-file.txt https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/hdl:TEST/12345
 </code></pre>
 
 <h2><a name="index2h2"></a>curl reference</h2>
 
-<h3><a name="index9h3"></a>--upload-file is a PUT</h3>
+<h3><a name="index13h3"></a>--upload-file is a PUT</h3>
 
 <p>"If this is used on an HTTP(S) server, the PUT command will be used." -- <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
 
-<h3><a name="index10h3"></a>--data-binary is a POST</h3>
+<h3><a name="index14h3"></a>--data-binary is a POST</h3>
 
 <p>"(HTTP) This posts data" -- <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
 
@@ -218,7 +246,7 @@ v1
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Wed Aug  7 09:02:51 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Tue Aug 13 13:07:45 2013</span>
 <!-- Created <span class="date">Wed Aug  7 08:34:00 2013</span> -->
 </div>
 
