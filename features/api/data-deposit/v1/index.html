@@ -131,13 +131,15 @@ v1
 			</li>
 			<li class="L3"><a href="#index12h3">Release a study</a>
 			</li>
+			<li class="L3"><a href="#index13h3">Determine if a dataverse has been released (dataverseHasBeenReleased boolean)</a>
+			</li>
 		</ol>
 		</li>
 		<li class="L2"><a href="#index2h2">curl reference</a>
 		<ol>
-			<li class="L3"><a href="#index13h3">--upload-file is a PUT</a>
+			<li class="L3"><a href="#index14h3">--upload-file is a PUT</a>
 			</li>
-			<li class="L3"><a href="#index14h3">--data-binary is a POST</a>
+			<li class="L3"><a href="#index15h3">--data-binary is a POST</a>
 			</li>
 		</ol>
 		</li>
@@ -211,13 +213,18 @@ v1
 <pre><code>curl --insecure -s -X POST -H "In-Progress: false" --upload-file zero-length-file.txt https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
 </code></pre>
 
+<h3><a name="index13h3"></a>Determine if a dataverse has been released (dataverseHasBeenReleased boolean)</h3>
+
+<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
+</code></pre>
+
 <h2><a name="index2h2"></a>curl reference</h2>
 
-<h3><a name="index13h3"></a>--upload-file is a PUT</h3>
+<h3><a name="index14h3"></a>--upload-file is a PUT</h3>
 
 <p>"If this is used on an HTTP(S) server, the PUT command will be used." -- <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
 
-<h3><a name="index14h3"></a>--data-binary is a POST</h3>
+<h3><a name="index15h3"></a>--data-binary is a POST</h3>
 
 <p>"(HTTP) This posts data" -- <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
 
@@ -246,7 +253,7 @@ v1
 
 
 <div class="pagedate">
-Last <a href="FIXME">updated</a> <span class="date">Fri Aug 16 12:56:59 2013</span>
+Last <a href="FIXME">updated</a> <span class="date">Mon Aug 19 10:57:44 2013</span>
 <!-- Created <span class="date">Wed Aug  7 08:34:00 2013</span> -->
 </div>
 
