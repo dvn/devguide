@@ -141,7 +141,9 @@ v1
 			</li>
 		</ol>
 		</li>
-		<li class="L2"><a href="#index3h2">DVN Data Deposit API v1 client written in Python</a>
+		<li class="L2"><a href="#index3h2">Reformating XML output with xmllint to make it readable</a>
+		</li>
+		<li class="L2"><a href="#index4h2">DVN Data Deposit API v1 client written in Python</a>
 		</li>
 	</ol>
 </div>
@@ -221,7 +223,12 @@ v1
 
 <p>"(HTTP) This posts data" -- <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
 
-<h2><a name="index3h2"></a>DVN Data Deposit API v1 client written in Python</h2>
+<h2><a name="index3h2"></a>Reformating XML output with xmllint to make it readable</h2>
+
+<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/service-document | xmllint -format -
+</code></pre>
+
+<h2><a name="index4h2"></a>DVN Data Deposit API v1 client written in Python</h2>
 
 <p><a href="https://github.com/dvn/swordpoc/tree/master/dvn_client">https://github.com/dvn/swordpoc/tree/master/dvn_client</a></p>
 
@@ -246,7 +253,7 @@ v1
 
 
 <div class="pagedate">
-Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Tue Aug 20 14:37:58 2013</span>
+Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Tue Aug 20 14:42:44 2013</span>
 <!-- Created <span class="date">Wed Aug  7 08:34:00 2013</span> -->
 </div>
 
