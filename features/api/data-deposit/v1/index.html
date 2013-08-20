@@ -113,15 +113,15 @@ v1
 			</li>
 			<li class="L3"><a href="#index3h3">Add files to a study with a zip file</a>
 			</li>
-			<li class="L3"><a href="#index4h3">Delete a file by database id</a>
+			<li class="L3"><a href="#index4h3">Display a study atom entry (contains data citation (bibliographicCitation) statement uri, isReleased state, isInDraft state, and isDeaccessioned state)</a>
 			</li>
-			<li class="L3"><a href="#index5h3">Replacing cataloging information (title, author, etc.) for a study</a>
+			<li class="L3"><a href="#index5h3">Display a study statement (contains feed of file entries)</a>
 			</li>
-			<li class="L3"><a href="#index6h3">List studies in a dataverse</a>
+			<li class="L3"><a href="#index6h3">Delete a file by database id</a>
 			</li>
-			<li class="L3"><a href="#index7h3">Display a study atom entry (contains data citation (bibliographicCitation) statement uri, isReleased state, and isInDraft state)</a>
+			<li class="L3"><a href="#index7h3">Replacing cataloging information (title, author, etc.) for a study</a>
 			</li>
-			<li class="L3"><a href="#index8h3">Display a study statement (contains feed of file entries)</a>
+			<li class="L3"><a href="#index8h3">List studies in a dataverse</a>
 			</li>
 			<li class="L3"><a href="#index9h3">Delete a study (non-released studies only)</a>
 			</li>
@@ -168,29 +168,29 @@ v1
 <pre><code>curl --insecure -s --data-binary @example.zip -H "Content-Disposition: filename=example.zip" -H "Content-Type: application/zip" -H "Packaging: http://purl.org/net/sword/package/SimpleZip" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/study/hdl:TEST/12345
 </code></pre>
 
-<h3><a name="index4h3"></a>Delete a file by database id</h3>
-
-<pre><code>curl --include --insecure -s -X DELETE https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/file/2325541
-</code></pre>
-
-<h3><a name="index5h3"></a>Replacing cataloging information (title, author, etc.) for a study</h3>
-
-<pre><code>curl --insecure -s --upload-file "atom-entry-study2.xml" -H "Content-Type: application/atom+xml" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
-</code></pre>
-
-<h3><a name="index6h3"></a>List studies in a dataverse</h3>
-
-<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
-</code></pre>
-
-<h3><a name="index7h3"></a>Display a study atom entry (contains data citation (bibliographicCitation) statement uri, isReleased state, and isInDraft state)</h3>
+<h3><a name="index4h3"></a>Display a study atom entry (contains data citation (bibliographicCitation) statement uri, isReleased state, isInDraft state, and isDeaccessioned state)</h3>
 
 <pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
 </code></pre>
 
-<h3><a name="index8h3"></a>Display a study statement (contains feed of file entries)</h3>
+<h3><a name="index5h3"></a>Display a study statement (contains feed of file entries)</h3>
 
 <pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/statement/study/hdl:TEST/12345
+</code></pre>
+
+<h3><a name="index6h3"></a>Delete a file by database id</h3>
+
+<pre><code>curl --include --insecure -s -X DELETE https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/file/2325541
+</code></pre>
+
+<h3><a name="index7h3"></a>Replacing cataloging information (title, author, etc.) for a study</h3>
+
+<pre><code>curl --insecure -s --upload-file "atom-entry-study2.xml" -H "Content-Type: application/atom+xml" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
+</code></pre>
+
+<h3><a name="index8h3"></a>List studies in a dataverse</h3>
+
+<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
 </code></pre>
 
 <h3><a name="index9h3"></a>Delete a study (non-released studies only)</h3>
@@ -253,7 +253,7 @@ v1
 
 
 <div class="pagedate">
-Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Tue Aug 20 14:44:02 2013</span>
+Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Tue Aug 20 15:14:29 2013</span>
 <!-- Created <span class="date">Wed Aug  7 08:34:00 2013</span> -->
 </div>
 
