@@ -113,7 +113,7 @@ v1
 			</li>
 			<li class="L3"><a href="#index3h3">Add files to a study with a zip file</a>
 			</li>
-			<li class="L3"><a href="#index4h3">Display a study atom entry (contains data citation (bibliographicCitation) statement uri, isReleased state, isInDraft state, and isDeaccessioned state)</a>
+			<li class="L3"><a href="#index4h3">Display a study atom entry (contains data citation (bibliographicCitation) statement uri, latestVersionState)</a>
 			</li>
 			<li class="L3"><a href="#index5h3">Display a study statement (contains feed of file entries)</a>
 			</li>
@@ -168,7 +168,7 @@ v1
 <pre><code>curl --insecure -s --data-binary @example.zip -H "Content-Disposition: filename=example.zip" -H "Content-Type: application/zip" -H "Packaging: http://purl.org/net/sword/package/SimpleZip" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/study/hdl:TEST/12345
 </code></pre>
 
-<h3><a name="index4h3"></a>Display a study atom entry (contains data citation (bibliographicCitation) statement uri, isReleased state, isInDraft state, and isDeaccessioned state)</h3>
+<h3><a name="index4h3"></a>Display a study atom entry (contains data citation (bibliographicCitation) statement uri, latestVersionState)</h3>
 
 <pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
 </code></pre>
@@ -253,7 +253,7 @@ v1
 
 
 <div class="pagedate">
-Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Tue Aug 20 15:14:29 2013</span>
+Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Wed Aug 21 18:40:47 2013</span>
 <!-- Created <span class="date">Wed Aug  7 08:34:00 2013</span> -->
 </div>
 
