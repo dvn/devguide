@@ -109,7 +109,7 @@ v1
 		<ol>
 			<li class="L3"><a href="#index1h3">Retrieve SWORD service document</a>
 			</li>
-			<li class="L3"><a href="#index2h3">Create a study</a>
+			<li class="L3"><a href="#index2h3">Create a study with an Atom entry (XML file)</a>
 			</li>
 			<li class="L3"><a href="#index3h3">Add files to a study with a zip file</a>
 			</li>
@@ -158,10 +158,12 @@ v1
 <pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/service-document
 </code></pre>
 
-<h3><a name="index2h3"></a>Create a study</h3>
+<h3><a name="index2h3"></a>Create a study with an Atom entry (XML file)</h3>
 
 <pre><code>curl --insecure -s --data-binary "@atom-entry-study.xml" -H "Content-Type: application/atom+xml" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
 </code></pre>
+
+<p>A sample <code>atom-entry-study.xml</code> file is available at <a href="https://github.com/IQSS/dvn/blob/develop/tools/scripts/data-deposit-api/atom-entry-study.xml">https://github.com/IQSS/dvn/blob/develop/tools/scripts/data-deposit-api/atom-entry-study.xml</a></p>
 
 <h3><a name="index3h3"></a>Add files to a study with a zip file</h3>
 
@@ -187,6 +189,8 @@ v1
 
 <pre><code>curl --insecure -s --upload-file "atom-entry-study2.xml" -H "Content-Type: application/atom+xml" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
 </code></pre>
+
+<p>A sample <code>atom-entry-study2.xml</code> file is available at <a href="https://github.com/IQSS/dvn/blob/develop/tools/scripts/data-deposit-api/atom-entry-study2.xml">https://github.com/IQSS/dvn/blob/develop/tools/scripts/data-deposit-api/atom-entry-study2.xml</a></p>
 
 <h3><a name="index8h3"></a>List studies in a dataverse</h3>
 
@@ -253,7 +257,7 @@ v1
 
 
 <div class="pagedate">
-Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Tue Aug 27 16:14:22 2013</span>
+Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Thu Aug 29 09:25:06 2013</span>
 <!-- Created <span class="date">Wed Aug  7 08:34:00 2013</span> -->
 </div>
 
