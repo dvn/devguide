@@ -101,140 +101,7 @@ v1
 <div id="pagebody">
 
 <div id="content">
-
-
-<div class="toc">
-	<ol>
-		<li class="L2"><a href="#index1h2">DVN Data Deposit API v1 examples using curl</a>
-		<ol>
-			<li class="L3"><a href="#index1h3">Retrieve SWORD service document</a>
-			</li>
-			<li class="L3"><a href="#index2h3">Create a study with an Atom entry (XML file)</a>
-			</li>
-			<li class="L3"><a href="#index3h3">Add files to a study with a zip file</a>
-			</li>
-			<li class="L3"><a href="#index4h3">Display a study atom entry (contains data citation (bibliographicCitation), alternate URI [persistent URI of study], edit URI, edit media URI, statement URI)</a>
-			</li>
-			<li class="L3"><a href="#index5h3">Display a study statement (contains feed of file entries, latestVersionState, locked boolean)</a>
-			</li>
-			<li class="L3"><a href="#index6h3">Delete a file by database id</a>
-			</li>
-			<li class="L3"><a href="#index7h3">Replacing cataloging information (title, author, etc.) for a study</a>
-			</li>
-			<li class="L3"><a href="#index8h3">List studies in a dataverse</a>
-			</li>
-			<li class="L3"><a href="#index9h3">Delete a study (non-released studies only)</a>
-			</li>
-			<li class="L3"><a href="#index10h3">Deaccession a study (released studies only)</a>
-			</li>
-			<li class="L3"><a href="#index11h3">Release a study</a>
-			</li>
-			<li class="L3"><a href="#index12h3">Determine if a dataverse has been released (dataverseHasBeenReleased boolean)</a>
-			</li>
-		</ol>
-		</li>
-		<li class="L2"><a href="#index2h2">curl reference</a>
-		<ol>
-			<li class="L3"><a href="#index13h3">--upload-file is a PUT</a>
-			</li>
-			<li class="L3"><a href="#index14h3">--data-binary is a POST</a>
-			</li>
-		</ol>
-		</li>
-		<li class="L2"><a href="#index3h2">Reformatting XML output with xmllint to make it readable</a>
-		</li>
-		<li class="L2"><a href="#index4h2">DVN Data Deposit API v1 client written in Python</a>
-		</li>
-	</ol>
-</div>
-
-
-<h2><a name="index1h2"></a>DVN Data Deposit API v1 examples using curl</h2>
-
-<p>Please note that this is all subject to change! <a href="https://github.com/IQSS/dvn/tree/develop/tools/scripts/data-deposit-api">https://github.com/IQSS/dvn/tree/develop/tools/scripts/data-deposit-api</a> contains the latest working example code.</p>
-
-<h3><a name="index1h3"></a>Retrieve SWORD service document</h3>
-
-<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/service-document
-</code></pre>
-
-<h3><a name="index2h3"></a>Create a study with an Atom entry (XML file)</h3>
-
-<pre><code>curl --insecure -s --data-binary "@atom-entry-study.xml" -H "Content-Type: application/atom+xml" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
-</code></pre>
-
-<p>A sample <code>atom-entry-study.xml</code> file is available at <a href="https://github.com/IQSS/dvn/blob/develop/tools/scripts/data-deposit-api/atom-entry-study.xml">https://github.com/IQSS/dvn/blob/develop/tools/scripts/data-deposit-api/atom-entry-study.xml</a></p>
-
-<h3><a name="index3h3"></a>Add files to a study with a zip file</h3>
-
-<pre><code>curl --insecure -s --data-binary @example.zip -H "Content-Disposition: filename=example.zip" -H "Content-Type: application/zip" -H "Packaging: http://purl.org/net/sword/package/SimpleZip" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/study/hdl:TEST/12345
-</code></pre>
-
-<h3><a name="index4h3"></a>Display a study atom entry (contains data citation (bibliographicCitation), alternate URI [persistent URI of study], edit URI, edit media URI, statement URI)</h3>
-
-<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
-</code></pre>
-
-<h3><a name="index5h3"></a>Display a study statement (contains feed of file entries, latestVersionState, locked boolean)</h3>
-
-<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/statement/study/hdl:TEST/12345
-</code></pre>
-
-<h3><a name="index6h3"></a>Delete a file by database id</h3>
-
-<pre><code>curl --include --insecure -s -X DELETE https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit-media/file/2325541
-</code></pre>
-
-<h3><a name="index7h3"></a>Replacing cataloging information (title, author, etc.) for a study</h3>
-
-<pre><code>curl --insecure -s --upload-file "atom-entry-study2.xml" -H "Content-Type: application/atom+xml" https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
-</code></pre>
-
-<p>A sample <code>atom-entry-study2.xml</code> file is available at <a href="https://github.com/IQSS/dvn/blob/develop/tools/scripts/data-deposit-api/atom-entry-study2.xml">https://github.com/IQSS/dvn/blob/develop/tools/scripts/data-deposit-api/atom-entry-study2.xml</a></p>
-
-<h3><a name="index8h3"></a>List studies in a dataverse</h3>
-
-<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
-</code></pre>
-
-<h3><a name="index9h3"></a>Delete a study (non-released studies only)</h3>
-
-<pre><code>curl -i --insecure -s -X DELETE https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
-</code></pre>
-
-<h3><a name="index10h3"></a>Deaccession a study (released studies only)</h3>
-
-<pre><code>curl -i --insecure -s -X DELETE https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
-</code></pre>
-
-<h3><a name="index11h3"></a>Release a study</h3>
-
-<pre><code>curl --insecure -s -X POST -H "In-Progress: false" --upload-file zero-length-file.txt https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/edit/study/hdl:TEST/12345
-</code></pre>
-
-<h3><a name="index12h3"></a>Determine if a dataverse has been released (dataverseHasBeenReleased boolean)</h3>
-
-<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/collection/dataverse/sword
-</code></pre>
-
-<h2><a name="index2h2"></a>curl reference</h2>
-
-<h3><a name="index13h3"></a>--upload-file is a PUT</h3>
-
-<p>"If this is used on an HTTP(S) server, the PUT command will be used." -- <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
-
-<h3><a name="index14h3"></a>--data-binary is a POST</h3>
-
-<p>"(HTTP) This posts data" -- <a href="http://curl.haxx.se/docs/manpage.html">http://curl.haxx.se/docs/manpage.html</a></p>
-
-<h2><a name="index3h2"></a>Reformatting XML output with xmllint to make it readable</h2>
-
-<pre><code>curl --insecure -s https://sword:sword@localhost:8181/dvn/api/data-deposit/v1/swordv2/service-document | xmllint -format -
-</code></pre>
-
-<h2><a name="index4h2"></a>DVN Data Deposit API v1 client written in Python</h2>
-
-<p><a href="https://github.com/dvn/swordpoc/tree/master/dvn_client">https://github.com/dvn/swordpoc/tree/master/dvn_client</a></p>
+<p>This page has moved to <a href="http://thedata.harvard.edu/guides/dataverse-api-main.html#data-deposit-api">http://thedata.harvard.edu/guides/dataverse-api-main.html#data-deposit-api</a></p>
 
 </div>
 
@@ -257,7 +124,7 @@ v1
 
 
 <div class="pagedate">
-Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Thu Aug 29 09:25:06 2013</span>
+Last <a href="https://github.com/dvn/dvn-devguide-src/blob/master/features/api/data-deposit/v1.mdwn">updated</a> <span class="date">Tue Dec  3 09:33:03 2013</span>
 <!-- Created <span class="date">Wed Aug  7 08:34:00 2013</span> -->
 </div>
 
